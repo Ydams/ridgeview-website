@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ridgeview Innovations Hub Ltd – Where Tech Talent Meets Real-World Innovation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@800,700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#222221;
+  --ink-dark:#0d0f14;
+  --paper:#f0f4ff;
+  --cream:#f7f9ff;
+  --accent:#ff6b2b;
+  --brand:#004aad;
+  --brand-dark:#003585;
+  --brand-light:#e6eeff;
+  --green:#1a6b45;
+  --muted:#5a6072;
+  --bd:rgba(0,74,173,0.12);
+  --r:16px;--rl:28px;
+  --font-body:Inter,system-ui,-apple-system,".SFNSText-Regular","San Francisco",Roboto,"Segoe UI","Helvetica Neue","Lucida Grande",sans-serif;
+  --font-hero:'Satoshi-Variable','Satoshi',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+.logo-img{height:40px;width:auto;display:block;object-fit:contain}
+.logo-img-footer{height:44px;width:auto;display:block;object-fit:contain;border-radius:8px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);font-weight:400;background:var(--cream);color:var(--ink);overflow-x:hidden;font-size:16px;line-height:1.313}
+h1,h2{font-family:var(--font-hero);font-weight:800;line-height:1.15;color:#1f2625}
+h3,h4,h5{font-family:var(--font-body);font-weight:700;line-height:1.21;font-size:19px;color:var(--ink-dark)}
+a{text-decoration:none}
+img{max-width:100%}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 6%;background:rgba(247,249,255,0.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);transition:box-shadow .3s}
+.logo{display:flex;align-items:center;gap:10px;color:var(--ink-dark)}
+.ltext strong{font-family:var(--font-body);font-size:15px;font-weight:700;display:block;line-height:1.2;color:var(--ink-dark)}
+.ltext small{font-size:11px;color:var(--muted);font-family:var(--font-body);font-weight:400}
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav-links a{color:var(--ink);font-family:var(--font-body);font-size:16px;font-weight:400;transition:color .2s}
+.nav-links a:hover{color:var(--brand)}
+.nav-cta{background:var(--brand);color:#fff;padding:10px 22px;border-radius:50px;font-family:var(--font-body);font-size:16px;font-weight:700;transition:background .2s}
+.nav-cta:hover{background:var(--brand-dark)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;background:none;border:none}
+.hamburger span{width:22px;height:2px;background:var(--ink-dark);border-radius:2px;display:block;transition:all .3s}
+.mobile-menu{display:none;position:fixed;top:71px;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--bd);padding:24px 6%;z-index:99;flex-direction:column}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--font-body);color:var(--ink);font-size:16px;font-weight:400;padding:14px 0;border-bottom:1px solid var(--bd)}
+
+/* HERO */
+.hero{padding:140px 6% 100px;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;position:relative;overflow:hidden;background:var(--cream)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 80% 50%,rgba(0,74,173,.05) 0%,transparent 70%),radial-gradient(ellipse 50% 50% at 20% 80%,rgba(255,107,43,.06) 0%,transparent 60%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;padding:7px 16px;border-radius:50px;font-family:var(--font-body);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:28px}
+.hero-badge::before{content:'●';font-size:8px;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(2.4rem,5vw,48px);line-height:56px;letter-spacing:-.02em;margin-bottom:22px}
+.hero h1 em{font-style:normal;color:var(--brand)}
+.hero-sub{font-family:var(--font-body);font-size:17px;font-weight:400;color:var(--muted);max-width:460px;margin-bottom:40px;line-height:1.6}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:var(--brand);color:#fff;padding:14px 30px;border-radius:50px;font-family:var(--font-body);font-size:16px;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:all .25s}
+.btn-primary:hover{background:var(--brand-dark);transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,74,173,.3)}
+.btn-secondary{border:2px solid var(--brand);color:var(--brand);padding:13px 28px;border-radius:50px;font-family:var(--font-body);font-size:16px;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:all .25s}
+.btn-secondary:hover{background:var(--brand);color:#fff;transform:translateY(-2px)}
+.hero-right{position:relative}
+.hero-float{position:absolute;top:-20px;right:-20px;background:var(--accent);color:#fff;padding:11px 20px;border-radius:50px;font-family:var(--font-body);font-size:13px;font-weight:700;box-shadow:0 8px 24px rgba(255,107,43,.4);z-index:2}
+.hero-card{background:var(--brand);border-radius:var(--rl);padding:38px;color:#fff;position:relative;overflow:hidden}
+.hero-card::after{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,255,255,.3) 0%,transparent 70%);opacity:.2}
+.hero-card .big{font-family:var(--font-hero);font-size:3rem;font-weight:800;color:#fff;line-height:1;margin-bottom:6px}
+.hero-card .sub{font-family:var(--font-body);font-size:15px;opacity:.85;margin-bottom:8px}
+.hero-card .sub2{font-family:var(--font-body);font-size:13px;opacity:.65;margin-bottom:28px}
+.hmini{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.hm{background:rgba(255,255,255,.12);border-radius:12px;padding:15px;border:1px solid rgba(255,255,255,.2)}
+.hm .ico{font-size:22px;margin-bottom:7px}
+.hm strong{font-family:var(--font-body);font-size:13px;font-weight:700;display:block;margin-bottom:3px}
+.hm span{font-family:var(--font-body);font-size:11px;opacity:.75}
+.hero-reg{position:absolute;bottom:-16px;left:20px;background:var(--brand-light);border:1px solid rgba(0,74,173,.2);padding:9px 16px;border-radius:50px;font-family:var(--font-body);font-size:11px;font-weight:700;color:var(--brand);display:flex;align-items:center;gap:6px}
+
+/* STATS */
+.stats{background:var(--brand);padding:40px 6%;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.si .n{font-family:var(--font-hero);font-size:2.4rem;font-weight:800;color:#fff;display:block;line-height:1}
+.si span{font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,.7);margin-top:6px;display:block}
+
+/* SECTIONS */
+section{padding:100px 6%}
+.stag{display:inline-block;background:var(--brand);color:#fff;padding:5px 14px;border-radius:50px;font-family:var(--font-body);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
+.stitle{font-family:var(--font-hero);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;margin-bottom:16px;letter-spacing:-.02em;color:#1f2625}
+.ssub{font-family:var(--font-body);font-size:16px;color:var(--muted);max-width:560px;line-height:1.313}
+.sh{margin-bottom:60px}
+.sh.c{text-align:center}
+.sh.c .ssub{margin:0 auto}
+
+/* ABOUT */
+.about-g{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.mvc{background:var(--paper);border-radius:var(--r);padding:28px;border:1px solid var(--bd)}
+.mvc .ico{font-size:28px;margin-bottom:14px}
+.mvc h4{font-family:var(--font-body);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand);margin-bottom:10px}
+.mvc p{font-family:var(--font-body);font-size:16px;color:var(--muted);line-height:1.313}
+.reg-info{margin-top:32px;background:var(--brand-light);border:1px solid rgba(0,74,173,.2);border-radius:var(--r);padding:20px 24px;display:flex;align-items:flex-start;gap:14px}
+.reg-info .ri{font-size:24px;flex-shrink:0;margin-top:2px}
+.reg-info p{font-family:var(--font-body);font-size:15px;color:var(--brand);line-height:1.5}
+.reg-info strong{font-weight:700;display:block;margin-bottom:4px}
+.avblocks{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.avb{background:var(--paper);border-radius:var(--r);padding:28px;border:1px solid var(--bd);transition:transform .3s,box-shadow .3s}
+.avb:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,74,173,.1)}
+.avb.dark{background:var(--brand);color:#fff;grid-row:span 2}
+.avb.dark p{color:rgba(255,255,255,.75)}
+.avb .aico{font-size:32px;margin-bottom:14px}
+.avb h3{font-size:19px;margin-bottom:8px;color:var(--ink-dark)}
+.avb.dark h3{color:#fff}
+.avb p{font-size:16px;color:var(--muted);line-height:1.313}
+.avb .bnum{font-family:var(--font-hero);font-size:3.5rem;font-weight:800;color:#fff;line-height:1;margin-bottom:8px}
+.avb.amber{background:var(--brand);grid-column:span 2}
+.avb.amber h3{font-weight:700;font-size:19px;margin-bottom:6px;color:#fff}
+.avb.amber p{font-size:16px;color:rgba(255,255,255,.8)}
+
+/* PROGRAMS */
+.prog-section{background:var(--paper)}
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pc{background:var(--cream);border-radius:var(--r);padding:32px;border:1px solid var(--bd);transition:all .3s;position:relative;overflow:hidden}
+.pc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--brand);transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.pc:hover::after{transform:scaleX(1)}
+.pc:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
+.pico{width:52px;height:52px;border-radius:14px;background:var(--brand);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px}
+.pc h3{font-size:19px;margin-bottom:12px;color:var(--ink-dark)}
+.pc p{font-size:16px;color:var(--muted);line-height:1.313;margin-bottom:20px}
+.pmeta{display:flex;gap:10px;flex-wrap:wrap}
+.ptag{background:var(--paper);border:1px solid var(--bd);padding:4px 10px;border-radius:50px;font-family:var(--font-body);font-size:11px;color:var(--muted)}
+.pchip{display:inline-block;background:var(--accent);color:#fff;padding:4px 12px;border-radius:50px;font-family:var(--font-body);font-size:12px;font-weight:700;margin-top:14px}
+
+/* HOW IT WORKS */
+.hiw{background:#003585}
+.hiw .stag{background:var(--accent);color:#fff}
+.hiw .stitle{color:#fff}
+.hiw .ssub{color:rgba(255,255,255,.65)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.step{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:32px 22px;text-align:center;transition:background .3s}
+.step:hover{background:rgba(255,255,255,.1)}
+.snum{width:52px;height:52px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-body);font-size:20px;font-weight:700;color:#fff;margin:0 auto 20px}
+.step h4{font-size:19px;color:#fff;margin-bottom:10px}
+.step p{font-size:16px;color:rgba(255,255,255,.65);line-height:1.313}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.sc{background:var(--cream);border-radius:var(--r);padding:36px;border:1px solid var(--bd);display:flex;gap:24px;align-items:flex-start;transition:all .3s}
+.sc:hover{border-color:var(--brand);transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,74,173,.08)}
+.sico{width:56px;height:56px;flex-shrink:0;background:var(--brand);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px}
+.sc h3{font-size:19px;margin-bottom:10px;color:var(--ink-dark)}
+.sc p{font-size:16px;color:var(--muted);line-height:1.313;margin-bottom:14px}
+.sl{list-style:none;display:flex;flex-direction:column;gap:6px}
+.sl li{font-size:16px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.sl li::before{content:'→';color:var(--brand)}
+.sp{font-family:var(--font-body);font-size:16px;font-weight:700;color:var(--green);margin-top:14px}
+
+/* WHY US */
+.why-section{background:var(--paper)}
+.why-g{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.why-list{display:flex;flex-direction:column;gap:18px}
+.wi{display:flex;gap:20px;align-items:flex-start;padding:22px;background:var(--cream);border-radius:var(--r);border:1px solid var(--bd);transition:all .3s}
+.wi:hover{border-color:var(--brand);box-shadow:0 8px 24px rgba(0,74,173,.08)}
+.wico{width:46px;height:46px;background:var(--brand);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.wi h4{font-size:19px;margin-bottom:6px;color:var(--ink-dark)}
+.wi p{font-size:16px;color:var(--muted);line-height:1.313}
+.why-vis{background:var(--brand);border-radius:var(--rl);padding:46px 38px;color:#fff;position:relative;overflow:hidden}
+.why-vis::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(255,255,255,.4) 0%,transparent 70%);opacity:.15}
+.why-vis h3{font-family:var(--font-body);font-size:22px;font-weight:700;line-height:1.21;margin-bottom:8px;color:#fff}
+.why-vis>p{font-family:var(--font-body);font-size:16px;color:#fff;margin-bottom:30px;line-height:1.313}
+.edges{display:flex;flex-direction:column;gap:14px}
+.ei{background:rgba(255,255,255,.1);border-radius:12px;padding:16px 18px;display:flex;align-items:flex-start;gap:14px;border:1px solid rgba(255,255,255,.2)}
+.ei .eico{font-size:22px;flex-shrink:0;margin-top:2px}
+.ei p{font-family:var(--font-body);font-size:16px;color:#fff;line-height:1.313}
+
+/* COMMUNITY */
+.comm-section{background:var(--cream)}
+.comm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cc{background:var(--paper);border-radius:var(--r);padding:36px;border:1px solid var(--bd);text-align:center;transition:all .3s}
+.cc:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.08)}
+.cico{font-size:48px;margin-bottom:20px;display:block}
+.cc h3{font-size:19px;margin-bottom:12px;color:var(--ink-dark)}
+.cc p{font-size:16px;color:var(--muted);line-height:1.313}
+
+/* TESTIMONIALS */
+.testi-section{background:var(--paper);padding-top:120px}
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-top:60px}
+.tc{background:var(--cream);border-radius:var(--r);border:1px solid var(--bd);overflow:visible;transition:all .3s;position:relative;margin-top:54px}
+.tc:hover{border-color:var(--brand);transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,74,173,.1)}
+.tc-img{width:108px;height:108px;border-radius:50%;object-fit:cover;object-position:center top;display:block;position:absolute;top:-54px;left:50%;transform:translateX(-50%);border:4px solid #fff;box-shadow:0 4px 20px rgba(0,74,173,.18)}
+.tc-body{padding:68px 26px 26px}
+.tstars{color:var(--brand);font-size:15px;margin-bottom:10px;letter-spacing:2px;text-align:center}
+.tq{font-size:2.6rem;color:var(--brand);line-height:1;margin-bottom:8px;font-family:Georgia,serif;text-align:center}
+.tt{font-family:var(--font-body);font-size:15px;color:var(--ink);line-height:1.65;margin-bottom:20px;font-style:italic;text-align:center}
+.ta{display:flex;align-items:center;justify-content:center;gap:10px;padding-top:16px;border-top:1px solid var(--bd)}
+.tav{width:34px;height:34px;border-radius:50%;background:var(--brand);display:flex;align-items:center;justify-content:center;font-family:var(--font-body);font-weight:700;color:#fff;font-size:13px;flex-shrink:0}
+.tname{font-family:var(--font-body);font-size:15px;font-weight:700;color:var(--ink-dark)}
+.trole{font-family:var(--font-body);font-size:12px;color:var(--muted);margin-top:2px}
+
+/* GROWTH */
+.growth-section{background:var(--cream)}
+.gg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.gc{background:var(--paper);border-radius:var(--r);padding:36px;border:1px solid var(--bd);position:relative;overflow:hidden;transition:all .3s}
+.gc:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
+.gc.feat{background:var(--brand);color:#fff}
+.ybg{font-family:var(--font-hero);font-size:3rem;font-weight:800;color:var(--bd);position:absolute;top:20px;right:22px;line-height:1}
+.gc.feat .ybg{color:rgba(255,255,255,.1)}
+.ylb{font-family:var(--font-body);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);margin-bottom:8px;display:block}
+.gc.feat .ylb{color:rgba(255,255,255,.7)}
+.gc h3{font-family:var(--font-body);font-size:22px;font-weight:700;margin-bottom:16px;color:var(--ink-dark)}
+.gc.feat h3{color:#fff}
+.gi{list-style:none;display:flex;flex-direction:column;gap:10px}
+.gi li{font-family:var(--font-body);font-size:16px;display:flex;align-items:flex-start;gap:10px;line-height:1.313}
+.gi li::before{content:'✓';font-size:.8rem;color:var(--accent);flex-shrink:0;margin-top:3px}
+.gc.feat .gi li{color:rgba(255,255,255,.85)}
+
+/* BLOG */
+.blog-section{background:var(--paper)}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.bc{background:var(--cream);border-radius:var(--r);border:1px solid var(--bd);overflow:hidden;transition:all .3s}
+.bc:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
+.bthumb{height:180px;background:var(--brand);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.bthumb .bico{position:absolute;font-size:80px;opacity:.12}
+.blabel{position:relative;z-index:1;background:var(--accent);color:#fff;padding:5px 13px;border-radius:50px;font-family:var(--font-body);font-size:11px;font-weight:700;letter-spacing:.08em}
+.bcontent{padding:24px}
+.bdate{font-family:var(--font-body);font-size:13px;color:var(--muted);margin-bottom:10px}
+.bc h3{font-family:var(--font-body);font-size:19px;font-weight:700;margin-bottom:10px;color:var(--ink-dark);line-height:1.3}
+.bc p{font-family:var(--font-body);font-size:16px;color:var(--muted);line-height:1.313}
+.blink{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-body);font-size:15px;font-weight:700;color:var(--brand);margin-top:14px;transition:gap .2s}
+.blink:hover{gap:10px}
+
+/* CTA */
+.cta-band{background:var(--brand);padding:80px 6%;display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px}
+.cta-band h2{font-size:clamp(1.8rem,3vw,2.6rem);color:#fff;max-width:600px}
+.cta-band p{font-family:var(--font-body);font-size:16px;color:rgba(255,255,255,.8);margin-top:12px;line-height:1.313}
+.cta-acts{display:flex;gap:14px;flex-wrap:wrap}
+.bw{background:#fff;color:var(--brand);padding:14px 30px;border-radius:50px;font-family:var(--font-body);font-size:16px;font-weight:700;transition:all .25s}
+.bw:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.2)}
+.bow{border:2px solid rgba(255,255,255,.5);color:#fff;padding:13px 28px;border-radius:50px;font-family:var(--font-body);font-size:16px;font-weight:700;transition:all .25s}
+.bow:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+
+/* CONTACT */
+.contact-g{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.ci-info h3{font-family:var(--font-body);font-size:22px;font-weight:700;margin-bottom:16px;color:var(--ink-dark)}
+.ci-info>p{font-family:var(--font-body);font-size:16px;color:var(--muted);line-height:1.313;margin-bottom:36px}
+.citems{display:flex;flex-direction:column;gap:18px}
+.citem{display:flex;align-items:flex-start;gap:16px}
+.ciico{width:44px;height:44px;background:var(--paper);border:1px solid var(--bd);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.citem .ct strong{font-family:var(--font-body);font-size:13px;font-weight:700;display:block;margin-bottom:2px;color:var(--ink-dark)}
+.citem .ct span{font-family:var(--font-body);font-size:16px;color:var(--muted)}
+.cform{background:var(--paper);border-radius:var(--rl);padding:44px;border:1px solid var(--bd)}
+.cform h3{font-family:var(--font-body);font-size:22px;font-weight:700;margin-bottom:24px;color:var(--ink-dark)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fg{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.fg label{font-family:var(--font-body);font-size:13px;font-weight:700;color:var(--ink-dark)}
+.fg input,.fg select,.fg textarea{padding:13px 16px;border-radius:12px;border:1.5px solid var(--bd);background:var(--cream);font-family:var(--font-body);font-size:16px;color:var(--ink);outline:none;transition:border-color .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--brand)}
+.fg textarea{resize:vertical;min-height:120px}
+.fsub{width:100%;background:var(--brand);color:#fff;padding:15px;border-radius:50px;font-family:var(--font-body);font-size:16px;font-weight:700;border:none;cursor:pointer;transition:all .25s}
+.fsub:hover{background:var(--brand-dark);transform:translateY(-2px)}
+
+/* FOOTER */
+footer{background:#003585;color:rgba(255,255,255,.65);padding:70px 6% 36px}
+.fg-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:50px;margin-bottom:60px}
+.fbrand p{font-family:var(--font-body);font-size:16px;line-height:1.313;max-width:280px}
+.freg{margin-top:20px;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);padding:8px 14px;border-radius:8px;font-family:var(--font-body);font-size:11px}
+.freg span{color:rgba(255,255,255,.4)}
+.fcol h5{font-family:var(--font-body);font-size:16px;font-weight:700;color:#fff;margin-bottom:18px}
+.fcol a{display:block;font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,.6);margin-bottom:12px;transition:color .2s}
+.fcol a:hover{color:var(--accent)}
+.fbot{border-top:1px solid rgba(255,255,255,.15);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.fbot p{font-family:var(--font-body);font-size:13px}
+.socials{display:flex;gap:12px}
+.slink{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:15px;transition:all .2s}
+.slink:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.slink svg{width:16px;height:16px;fill:currentColor}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hero{grid-template-columns:1fr;padding:120px 6% 60px;min-height:auto}
+  .hero-right{display:none}
+  .about-g,.why-g,.contact-g{grid-template-columns:1fr}
+  .why-vis{display:none}
+  .prog-grid{grid-template-columns:1fr 1fr}
+  .fg-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .stats{grid-template-columns:1fr 1fr}
+  .prog-grid,.svc-grid,.comm-grid,.tg,.gg,.blog-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .cta-band{grid-template-columns:1fr;text-align:center}
+  .cta-acts{justify-content:center}
+  .frow{grid-template-columns:1fr}
+  .fg-grid{grid-template-columns:1fr}
+  .fbot{flex-direction:column;text-align:center}
+  .avblocks{grid-template-columns:1fr 1fr}
+  .avb.dark{grid-row:auto}
+}
+@media(max-width:480px){
+  .steps,.avblocks{grid-template-columns:1fr}
+  section{padding:70px 5%}
+}
+
+/* ANIMATIONS */
+.fade-up{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
+body.js-ready .fade-up{opacity:0;transform:translateY(28px)}
+body.js-ready .fade-up.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="logo">
+    <img src="ridgeview_logo.png" alt="Ridgeview Innovations Hub" class="logo-img"/>
+    <div class="ltext">
+      <strong>Ridgeview Innovations Hub</strong>
+      <small>RC No. 9393238 · Incorporated 2026</small>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#community">Community</a></li>
+    <li><a href="#blog">Insights</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#programs" class="nav-cta">Start Learning →</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#programs" onclick="toggleMenu()">Programs</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#community" onclick="toggleMenu()">Community</a>
+  <a href="#blog" onclick="toggleMenu()">Insights</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div>
+    <div class="hero-badge">🇳🇬 Lagos, Nigeria · CAC Registered</div>
+    <h1>Where Tech Talent<br/>Meets <em>Real-World</em><br/>Innovation</h1>
+    <p class="hero-sub">Empowering individuals and businesses with practical digital skills, tools, and solutions. Not just a school. Not just an agency — a Digital Innovation Hub.</p>
+    <div class="hero-actions">
+      <a href="#programs" class="btn-primary">Start Learning →</a>
+      <a href="#services" class="btn-secondary">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-float">🚀 2026 Cohort Open</div>
+    <div class="hero-card">
+      <div class="big">2-in-1</div>
+      <div class="sub">Academy + Agency under one roof</div>
+      <div class="sub2">Train here. Work here. Grow here.</div>
+      <div class="hmini">
+        <div class="hm"><div class="ico">🎓</div><strong>Digital Academy</strong><span>Skills training & talent development</span></div>
+        <div class="hm"><div class="ico">💻</div><strong>Digital Agency</strong><span>Products & IT solutions</span></div>
+        <div class="hm"><div class="ico">🏆</div><strong>7 Programs</strong><span>From UI/UX to Cybersecurity</span></div>
+        <div class="hm"><div class="ico">📜</div><strong>CAC Certified</strong><span>RC No. 9393238</span></div>
+      </div>
+    </div>
+    <div class="hero-reg">✅ Incorporated under CAMA 2020 · TIN: 2622456605384</div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="si"><span class="n">7+</span><span>Programs & Courses</span></div>
+  <div class="si"><span class="n">2</span><span>Strategic Business Arms</span></div>
+  <div class="si"><span class="n">3yr</span><span>Expansion Roadmap</span></div>
+  <div class="si"><span class="n">100%</span><span>Practical, Hands-on Training</span></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-g">
+    <div>
+      <div class="stag">About Us</div>
+      <h2 class="stitle">Bridging the Gap Between Talent &amp; Opportunity</h2>
+      <p style="font-family:var(--font-body);font-size:16px;color:var(--muted);line-height:1.6;margin-bottom:20px">Ridgeview Innovations Hub Ltd is a technology-driven innovation and digital skills hub focused on empowering individuals and small businesses with practical digital knowledge and tools needed to thrive in today's digital economy.</p>
+      <p style="font-family:var(--font-body);font-size:16px;color:var(--muted);line-height:1.6">We exist to make digital skills simple, accessible, and applicable in real-world scenarios — through a unique dual model that combines a learning academy with a live digital agency.</p>
+      <div class="mv-grid">
+        <div class="mvc"><div class="ico">🎯</div><h4>Mission</h4><p>To equip individuals and businesses with practical digital skills, tools, and solutions that improve productivity, employability, and business growth.</p></div>
+        <div class="mvc"><div class="ico">👁️</div><h4>Vision</h4><p>To become a leading innovation hub in Africa, shaping a generation of digitally skilled individuals and technology-driven businesses.</p></div>
+      </div>
+      <div class="reg-info">
+        <div class="ri">🏛️</div>
+        <p><strong>Officially Incorporated · Federal Republic of Nigeria</strong>Registered under the Companies and Allied Matters Act 2020. RC No. 9393238 · Incorporated: 5th March, 2026 · TIN: 2622456605384</p>
+      </div>
+    </div>
+    <div class="avblocks fade-up">
+      <div class="avb dark">
+        <div class="aico">🚀</div>
+        <div class="bnum">∞</div>
+        <h3>Possibilities Ahead</h3>
+        <p>Students from the Academy become interns and work on real Agency projects — reducing cost, building experience, and creating a true innovation community.</p>
+      </div>
+      <div class="avb"><div class="aico">🎓</div><h3>Digital Academy</h3><p>Skills training for the next generation of tech talent</p></div>
+      <div class="avb"><div class="aico">💼</div><h3>Digital Agency</h3><p>Real-world IT solutions and digital products for businesses</p></div>
+      <div class="avb amber"><h3>"Learn. Build. Grow."</h3><p>The Ridgeview Way — practical, community-driven digital education</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="prog-section" id="programs">
+  <div class="sh">
+    <div class="stag">Programs</div>
+    <h2 class="stitle">Build In-Demand Digital Skills</h2>
+    <p class="ssub">Hands-on training programs designed around real-world application, not just theory. 70% practical, 30% theory — with capstone projects and internship support.</p>
+  </div>
+  <div class="prog-grid">
+    <div class="pc fade-up"><div class="pico">🎨</div><h3>UI/UX Design</h3><p>Master user interface and experience design using Figma and industry tools. Build stunning, usable products from scratch.</p><div class="pmeta"><span class="ptag">3–6 months</span><span class="ptag">Beginner friendly</span></div><div class="pchip">From ₦150,000</div></div>
+    <div class="pc fade-up"><div class="pico">💻</div><h3>Software Engineering</h3><p>Frontend, Backend, and Fullstack tracks. Build real applications using modern frameworks and best practices.</p><div class="pmeta"><span class="ptag">3–6 months</span><span class="ptag">Frontend · Backend · Fullstack</span></div><div class="pchip">From ₦200,000</div></div>
+    <div class="pc fade-up"><div class="pico">📊</div><h3>Data Analysis</h3><p>Turn raw data into actionable insights. Learn Excel, SQL, Python, and data visualization tools used by top companies.</p><div class="pmeta"><span class="ptag">3–4 months</span><span class="ptag">Excel · SQL · Python</span></div><div class="pchip">From ₦150,000</div></div>
+    <div class="pc fade-up"><div class="pico">🔐</div><h3>Cybersecurity</h3><p>Protect digital systems and networks. Ethical hacking, security audits, threat detection, and real-world tools.</p><div class="pmeta"><span class="ptag">4–6 months</span><span class="ptag">High demand skill</span></div><div class="pchip">From ₦250,000</div></div>
+    <div class="pc fade-up"><div class="pico">📱</div><h3>Digital Marketing</h3><p>Social media strategy, SEO, content creation, paid ads, and analytics. Become a complete digital marketer.</p><div class="pmeta"><span class="ptag">2–3 months</span><span class="ptag">SME focused</span></div><div class="pchip">From ₦80,000</div></div>
+    <div class="pc fade-up"><div class="pico">🤖</div><h3>AI Tools &amp; No-Code</h3><p>Leverage AI tools and no-code platforms to build products and automate workflows without writing complex code.</p><div class="pmeta"><span class="ptag">6–8 weeks</span><span class="ptag">AI-powered</span></div><div class="pchip">From ₦80,000</div></div>
+  </div>
+  <div style="text-align:center;margin-top:50px">
+    <a href="#contact" class="btn-primary">Enroll in a Program →</a>
+    <p style="margin-top:16px;font-family:var(--font-body);font-size:15px;color:var(--muted)">Corporate training packages also available from ₦1,000,000+</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="hiw">
+  <div class="sh c">
+    <div class="stag">How It Works</div>
+    <h2 class="stitle">Your Journey with Ridgeview</h2>
+    <p class="ssub">From enrollment to employment — we walk with you every step of the way.</p>
+  </div>
+  <div class="steps">
+    <div class="step fade-up"><div class="snum">1</div><h4>Apply &amp; Enroll</h4><p>Choose your program, fill the application form, and complete your enrollment. Flexible payment plans available.</p></div>
+    <div class="step fade-up"><div class="snum">2</div><h4>Learn by Doing</h4><p>70% practical training on real-world projects. Physical and virtual class options to suit your schedule.</p></div>
+    <div class="step fade-up"><div class="snum">3</div><h4>Build &amp; Intern</h4><p>Work on live agency projects as an intern. Build a real portfolio that employers and clients can see.</p></div>
+    <div class="step fade-up"><div class="snum">4</div><h4>Certify &amp; Launch</h4><p>Earn your Ridgeview certificate, get career support, job placement assistance, and join our alumni network.</p></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="sh">
+    <div class="stag">Digital Services</div>
+    <h2 class="stitle">IT Solutions for Your Business</h2>
+    <p class="ssub">The Ridgeview Digital Agency arm delivers custom digital products and IT solutions to SMEs, startups, government bodies, and NGOs.</p>
+  </div>
+  <div class="svc-grid">
+    <div class="sc fade-up"><div class="sico">🌐</div><div><h3>Website Design &amp; Development</h3><p>From simple landing pages to complex web applications — we design and build digital products that work.</p><ul class="sl"><li>Corporate &amp; business websites</li><li>E-commerce platforms</li><li>Landing pages &amp; portfolios</li><li>Web applications</li></ul><p class="sp">From ₦300,000 – ₦2,000,000</p></div></div>
+    <div class="sc fade-up"><div class="sico">🎨</div><div><h3>UI/UX &amp; Brand Design</h3><p>We create memorable brand identities and intuitive digital experiences that users love.</p><ul class="sl"><li>Brand identity design</li><li>UI/UX for apps &amp; platforms</li><li>Product design for startups</li><li>Design systems</li></ul><p class="sp">From ₦200,000 – ₦1,500,000</p></div></div>
+    <div class="sc fade-up"><div class="sico">🔐</div><div><h3>Cybersecurity &amp; IT Consulting</h3><p>Protect your digital assets and optimize your IT infrastructure with expert guidance.</p><ul class="sl"><li>Cybersecurity audits</li><li>IT consulting &amp; advisory</li><li>System automation</li><li>Security policy setup</li></ul><p class="sp">From ₦500,000+</p></div></div>
+    <div class="sc fade-up"><div class="sico">⚙️</div><div><h3>Maintenance &amp; IT Support</h3><p>Ongoing support so your digital systems stay fast, secure, and updated. Monthly retainer plans available.</p><ul class="sl"><li>Monthly retainer contracts</li><li>Hosting &amp; domain management</li><li>Product maintenance</li><li>Annual IT support</li></ul><p class="sp">Retainers from ₦200,000/month</p></div></div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section">
+  <div class="why-g">
+    <div>
+      <div class="stag">Why Ridgeview</div>
+      <h2 class="stitle">Built Differently. Built for Real Impact.</h2>
+      <div class="why-list">
+        <div class="wi fade-up"><div class="wico">🎯</div><div><h4>Practical, Hands-On Learning</h4><p>70% practical, 30% theory. You build real things from day one — not just watch slides.</p></div></div>
+        <div class="wi fade-up"><div class="wico">🔗</div><div><h4>Academy–Agency Integration</h4><p>Students work on real client projects, gaining experience while keeping our staffing cost low — a win for everyone.</p></div></div>
+        <div class="wi fade-up"><div class="wico">💰</div><div><h4>Affordable &amp; Accessible</h4><p>Flexible payment plans, virtual classes, and bootcamp formats make quality training accessible to all.</p></div></div>
+        <div class="wi fade-up"><div class="wico">🏛️</div><div><h4>Officially Registered Company</h4><p>CAC certified under CAMA 2020. RC No. 9393238. Your investment is with a legitimate institution.</p></div></div>
+      </div>
+    </div>
+    <div class="why-vis fade-up">
+      <h3>The Ridgeview Genius Model</h3>
+      <p>What makes us unique in Lagos &amp; beyond</p>
+      <div class="edges">
+        <div class="ei"><span class="eico">🎓→💼</span><p>Academy students become Agency interns — real experience, real output, real portfolio for every graduate.</p></div>
+        <div class="ei"><span class="eico">💸</span><p>Internal talent pipeline means lower staffing costs — savings passed on as competitive pricing to clients.</p></div>
+        <div class="ei"><span class="eico">📈</span><p>Project-based learning model means every student graduates with a portfolio of real-world work.</p></div>
+        <div class="ei"><span class="eico">🤝</span><p>Community-driven innovation hub — you don't just learn here, you belong here and grow here.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section class="comm-section" id="community">
+  <div class="sh c">
+    <div class="stag">Community</div>
+    <h2 class="stitle">More Than a School. A Movement.</h2>
+    <p class="ssub">Join a growing community of learners, builders, and innovators shaping the future of tech in Nigeria.</p>
+  </div>
+  <div class="comm-grid">
+    <div class="cc fade-up"><span class="cico">🏕️</span><h3>Bootcamps</h3><p>Intensive 8–12 week immersive programs for fast-track learners. Build job-ready skills in record time.</p></div>
+    <div class="cc fade-up"><span class="cico">💻</span><h3>Webinars &amp; Workshops</h3><p>Regular free and paid online sessions on trending tech topics, tools, and career insights.</p></div>
+    <div class="cc fade-up"><span class="cico">🎤</span><h3>Tech Events</h3><p>In-person events across Lagos and other cities. Network with industry professionals and fellow learners.</p></div>
+    <div class="cc fade-up"><span class="cico">🏫</span><h3>Campus Ambassadors</h3><p>We work with student reps across universities to bring digital education to campuses throughout Nigeria.</p></div>
+    <div class="cc fade-up"><span class="cico">🧑‍💼</span><h3>Mentorship Programs</h3><p>Paid 1-on-1 mentorship from experienced professionals in your chosen field. Truly personalized growth.</p></div>
+    <div class="cc fade-up"><span class="cico">💼</span><h3>Internship Placement</h3><p>Top graduates get placed as interns within the Ridgeview Agency and partner companies — paid experience.</p></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section" id="testimonials">
+  <div class="sh c">
+    <div class="stag">Testimonials</div>
+    <h2 class="stitle">Voices of Impact</h2>
+    <p class="ssub">What our students, partners, and clients say about their Ridgeview experience.</p>
+  </div>
+  <div class="tg">
+    <div class="tc fade-up">
+      <img src="testimonial-amara.png" alt="Amara Okonkwo" class="tc-img"/>
+      <div class="tc-body">
+        <div class="tstars">★★★★★</div>
+        <div class="tq">"</div>
+        <p class="tt">The Ridgeview program gave me practical skills I could use immediately. Within 3 months of completing the UI/UX course, I landed my first freelance client and had a real portfolio to show.</p>
+        <div class="ta"><div class="tav">A</div><div><div class="tname">Amara Okonkwo</div><div class="trole">UI/UX Graduate · Now Freelancing</div></div></div>
+      </div>
+    </div>
+    <div class="tc fade-up">
+      <img src="testimonial-kunle.jpg" alt="Kunle Adeyemi" class="tc-img"/>
+      <div class="tc-body">
+        <div class="tstars">★★★★★</div>
+        <div class="tq">"</div>
+        <p class="tt">As a business owner, the digital solutions team at Ridgeview Agency transformed our online presence completely. Professional, affordable, and incredibly reliable from start to finish.</p>
+        <div class="ta"><div class="tav">K</div><div><div class="tname">Kunle Adeyemi</div><div class="trole">Business Owner · Agency Client</div></div></div>
+      </div>
+    </div>
+    <div class="tc fade-up">
+      <img src="testimonial-chidinma.jpg" alt="Chidinma Eze" class="tc-img"/>
+      <div class="tc-body">
+        <div class="tstars">★★★★★</div>
+        <div class="tq">"</div>
+        <p class="tt">I came in as an NYSC member with zero tech skills. Ridgeview's bootcamp changed everything for me. The hands-on approach and real project work truly set me apart from every other applicant.</p>
+        <div class="ta"><div class="tav">C</div><div><div class="tname">Chidinma Eze</div><div class="trole">NYSC Corper · Software Engineering Bootcamp</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GROWTH PLAN -->
+<section class="growth-section">
+  <div class="sh c">
+    <div class="stag">3-Year Roadmap</div>
+    <h2 class="stitle">Where We're Going</h2>
+    <p class="ssub">A bold, phased growth plan to make Ridgeview one of Africa's leading innovation hubs.</p>
+  </div>
+  <div class="gg">
+    <div class="gc fade-up"><div class="ybg">Y1</div><span class="ylb">Year 1 · 2026</span><h3>Establish &amp; Prove</h3><ul class="gi"><li>Launch first 2–3 cohorts</li><li>Build brand credibility in Lagos</li><li>Complete 10–15 agency projects</li><li>Establish physical &amp; virtual training</li><li>Build a community of 500+ learners</li></ul></div>
+    <div class="gc feat fade-up"><div class="ybg">Y2</div><span class="ylb">Year 2 · 2027</span><h3>Scale &amp; Secure</h3><ul class="gi"><li>Launch hybrid classes (physical + online)</li><li>Secure 2 government contracts</li><li>Launch 1 internal SaaS product</li><li>Corporate partnerships &amp; training</li><li>Grow to 1,000+ enrolled students</li></ul></div>
+    <div class="gc fade-up"><div class="ybg">Y3</div><span class="ylb">Year 3 · 2028</span><h3>Expand &amp; Lead</h3><ul class="gi"><li>Expand to another state in Nigeria</li><li>Launch scholarship program</li><li>Build a dedicated tech campus</li><li>Become the #1 tech hub in Lagos</li><li>Pan-African digital talent network</li></ul></div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog-section" id="blog">
+  <div class="sh">
+    <div class="stag">Insights</div>
+    <h2 class="stitle">From the Ridgeview Hub</h2>
+    <p class="ssub">Tips, guides, and industry insights to keep you informed and ahead of the curve.</p>
+  </div>
+  <div class="blog-grid">
+    <div class="bc fade-up"><div class="bthumb"><div class="bico">💻</div><div class="blabel">TECH CAREERS</div></div><div class="bcontent"><div class="bdate">March 2026</div><h3>5 Most In-Demand Tech Skills in Nigeria for 2026</h3><p>The Nigerian tech ecosystem is growing fast. Here are the skills employers and clients are willing to pay top naira for right now.</p><a href="#" class="blink">Read More →</a></div></div>
+    <div class="bc fade-up"><div class="bthumb"><div class="bico">📱</div><div class="blabel">BUSINESS GROWTH</div></div><div class="bcontent"><div class="bdate">March 2026</div><h3>Why Every SME in Lagos Needs a Website in 2026</h3><p>Your customers are searching for you online. If you don't have a digital presence, you're invisible. Here's how to fix that.</p><a href="#" class="blink">Read More →</a></div></div>
+    <div class="bc fade-up"><div class="bthumb"><div class="bico">🤖</div><div class="blabel">AI &amp; NO-CODE</div></div><div class="bcontent"><div class="bdate">February 2026</div><h3>How to Use AI Tools to 10x Your Productivity as a Student</h3><p>AI is not here to replace you — it's here to amplify you. Learn the tools making smart students and professionals unstoppable.</p><a href="#" class="blink">Read More →</a></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div>
+    <h2>Ready to Start Your Digital Journey?</h2>
+    <p>Join hundreds of learners building real skills and real futures with Ridgeview.</p>
+  </div>
+  <div class="cta-acts">
+    <a href="#contact" class="bw">Enroll Now</a>
+    <a href="#services" class="bow">Partner With Us</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sh">
+    <div class="stag">Contact Us</div>
+    <h2 class="stitle">Let's Build Something Together</h2>
+  </div>
+  <div class="contact-g">
+    <div class="ci-info">
+      <p>Whether you want to enroll in a program, hire us to build your product, or partner with us — we'd love to hear from you.</p>
+      <div class="citems">
+        <div class="citem"><div class="ciico">📍</div><div class="ct"><strong>Location</strong><span>Lagos, Nigeria</span></div></div>
+        <div class="citem"><div class="ciico">📧</div><div class="ct"><strong>Email</strong><span>hello@ridgeviewhub.com</span></div></div>
+        <div class="citem"><div class="ciico">📞</div><div class="ct"><strong>Phone / WhatsApp</strong><span>+234 810 899 1625</span></div></div>
+        <div class="citem"><div class="ciico">🏛️</div><div class="ct"><strong>Company Registration</strong><span>RC No. 9393238 · Incorporated 5th March, 2026</span></div></div>
+      </div>
+    </div>
+    <div class="cform">
+      <h3>Send Us a Message</h3>
+      <div class="frow">
+        <div class="fg"><label>First Name</label><input type="text" placeholder="John"/></div>
+        <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe"/></div>
+      </div>
+      <div class="fg"><label>Email Address</label><input type="email" placeholder="you@example.com"/></div>
+      <div class="fg">
+        <label>I'm interested in…</label>
+        <select>
+          <option>Enrolling in a program</option>
+          <option>Corporate training</option>
+          <option>Website / web app development</option>
+          <option>UI/UX or branding services</option>
+          <option>IT consulting / cybersecurity</option>
+          <option>Partnership / collaboration</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="fg"><label>Your Message</label><textarea placeholder="Tell us more about what you need…"></textarea></div>
+      <button class="fsub" onclick="submitForm(this)">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fg-grid">
+    <div class="fbrand">
+      <a href="#" class="logo" style="margin-bottom:16px;display:flex;align-items:center;gap:10px">
+        <img src="ridgeview_logo.png" alt="Ridgeview Innovations Hub" class="logo-img-footer"/>
+        <div class="ltext">
+          <strong style="color:#fff;font-family:var(--font-body);font-size:15px;font-weight:700;display:block">Ridgeview Innovations Hub</strong>
+          <small style="color:rgba(255,255,255,.4);font-size:11px">Where Tech Talent Meets Real-World Innovation</small>
+        </div>
+      </a>
+      <p>A CAC-registered digital skills academy and IT solutions agency. Empowering Nigeria's next generation of tech talent.</p>
+      <div class="freg">🏛️ RC No. 9393238 <span>·</span> CAMA 2020 <span>·</span> Lagos, Nigeria</div>
+    </div>
+    <div class="fcol">
+      <h5>Programs</h5>
+      <a href="#programs">UI/UX Design</a>
+      <a href="#programs">Software Engineering</a>
+      <a href="#programs">Data Analysis</a>
+      <a href="#programs">Cybersecurity</a>
+      <a href="#programs">Digital Marketing</a>
+      <a href="#programs">AI &amp; No-Code</a>
+    </div>
+    <div class="fcol">
+      <h5>Services</h5>
+      <a href="#services">Website Development</a>
+      <a href="#services">UI/UX &amp; Branding</a>
+      <a href="#services">IT Consulting</a>
+      <a href="#services">Cybersecurity Audit</a>
+      <a href="#services">Maintenance &amp; Support</a>
+      <a href="#services">SaaS Products</a>
+    </div>
+    <div class="fcol">
+      <h5>Company</h5>
+      <a href="#about">About Us</a>
+      <a href="#community">Community</a>
+      <a href="#blog">Insights</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact">Partner With Us</a>
+      <a href="#contact">Careers</a>
+    </div>
+  </div>
+  <div class="fbot">
+    <p>© 2026 Ridgeview Innovations Hub Ltd. All rights reserved. RC No. 9393238.</p>
+    <div class="socials">
+      <a href="https://www.facebook.com/share/185Uu96pCo/" target="_blank" rel="noopener" class="slink" title="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/ridgeview_innovations_hub?igsh=MnhsZ2s3M3ppMG14" target="_blank" rel="noopener" class="slink" title="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://x.com/RidgeviewHub" target="_blank" rel="noopener" class="slink" title="X (Twitter)">𝕏</a>
+      <a href="https://www.linkedin.com/company/ridgeview-innovations-hub/" target="_blank" rel="noopener" class="slink" title="LinkedIn">in</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('load', function() {
+  document.body.classList.add('js-ready');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.fade-up').forEach(function(el) {
+    var rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 100) {
+      el.classList.add('in');
+    } else {
+      observer.observe(el);
+    }
+  });
+});
+
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+window.addEventListener('scroll', function() {
+  var nav = document.getElementById('navbar');
+  if (nav) nav.style.boxShadow = window.scrollY > 30 ? '0 4px 24px rgba(0,0,0,.1)' : 'none';
+});
+
+function submitForm(btn) {
+  btn.textContent = "✓ Message Sent! We'll be in touch with you"
+  }
