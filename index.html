@@ -593,7 +593,7 @@ body.js-ready .fade-up.in{opacity:1;transform:none}
       <p>Whether you want to enroll in a program, hire us to build your product, or partner with us — we'd love to hear from you.</p>
       <div class="citems">
         <div class="citem"><div class="ciico">📍</div><div class="ct"><strong>Location</strong><span>Lagos, Nigeria</span></div></div>
-        <div class="citem"><div class="ciico">📧</div><div class="ct"><strong>Email</strong><span>hello@ridgeviewhub.com</span></div></div>
+        <div class="citem"><div class="ciico">📧</div><div class="ct"><strong>Email</strong><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="acc4c9c0c0c3ecdec5c8cbc9dac5c9dbc4d9ce82cfc3c1">[email&#160;protected]</a></span></div></div>
         <div class="citem"><div class="ciico">📞</div><div class="ct"><strong>Phone / WhatsApp</strong><span>+234 810 899 1625</span></div></div>
         <div class="citem"><div class="ciico">🏛️</div><div class="ct"><strong>Company Registration</strong><span>RC No. 9393238 · Incorporated 5th March, 2026</span></div></div>
       </div>
@@ -711,5 +711,15 @@ window.addEventListener('scroll', function() {
 });
 
 function submitForm(btn) {
-  btn.textContent = "✓ Message Sent! We'll be in touch with you"
-  }
+  btn.textContent = "✓ Message Sent! We'll be in touch shortly.";
+  btn.style.background = '#1a6b45';
+  btn.disabled = true;
+  setTimeout(function() {
+    btn.textContent = 'Send Message →';
+    btn.style.background = '';
+    btn.disabled = false;
+  }, 4000);
+}
+</script>
+</body>
+</html>
