@@ -303,6 +303,28 @@ footer{background:#003585;color:rgba(255,255,255,.65);padding:70px 6% 36px}
   section{padding:70px 5%}
 }
 
+
+/* Lucide icon color inheritance */
+
+/* Blog thumb background icons */
+.bico svg { width: 80px; height: 80px; color: rgba(255,255,255,.15); display: block; }
+/* Edge icons in why-vis */
+.eico { display: flex; align-items: center; flex-shrink: 0; margin-top: 2px; }
+.eico svg { color: rgba(255,255,255,.9); width: 22px; height: 22px; }
+
+.pico svg, .sico svg, .wico svg, .ciico svg, .aico svg, .ri svg, .ico svg {
+  color: #fff;
+  display: block;
+}
+.pico svg { width: 26px; height: 26px; }
+.sico svg { width: 28px; height: 28px; }
+.wico svg { width: 22px; height: 22px; }
+.ciico svg { width: 20px; height: 20px; color: var(--brand); }
+.aico svg { width: 32px; height: 32px; }
+.ri svg { width: 22px; height: 22px; color: var(--brand); }
+.ico svg { width: 26px; height: 26px; color: var(--brand); }
+.cico svg { width: 44px; height: 44px; color: var(--brand); display: block; margin: 0 auto 20px; }
+
 /* ANIMATIONS */
 .fade-up{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
 body.js-ready .fade-up{opacity:0;transform:translateY(28px)}
@@ -346,7 +368,7 @@ body.js-ready .fade-up.in{opacity:1;transform:none}
 <!-- HERO -->
 <section class="hero" id="home">
   <div>
-    <div class="hero-badge">🇳🇬 Lagos, Nigeria · CAC Registered</div>
+    <div class="hero-badge"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Lagos, Nigeria · CAC Registered</div>
     <h1>Where Tech Talent<br/>Meets <em>Real-World</em><br/>Innovation</h1>
     <p class="hero-sub">Empowering individuals and businesses with practical digital skills, tools, and solutions. Not just a school. Not just an agency — a Digital Innovation Hub.</p>
     <div class="hero-actions">
@@ -355,19 +377,19 @@ body.js-ready .fade-up.in{opacity:1;transform:none}
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-float">🚀 2026 Cohort Open</div>
+    <div class="hero-float"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg> 2026 Cohort Open</div>
     <div class="hero-card">
       <div class="big">2-in-1</div>
       <div class="sub">Academy + Agency under one roof</div>
       <div class="sub2">Train here. Work here. Grow here.</div>
       <div class="hmini">
-        <div class="hm"><div class="ico">🎓</div><strong>Digital Academy</strong><span>Skills training & talent development</span></div>
-        <div class="hm"><div class="ico">💻</div><strong>Digital Agency</strong><span>Products & IT solutions</span></div>
-        <div class="hm"><div class="ico">🏆</div><strong>7 Programs</strong><span>From UI/UX to Cybersecurity</span></div>
-        <div class="hm"><div class="ico">📜</div><strong>CAC Certified</strong><span>RC No. 9393238</span></div>
+        <div class="hm"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><strong>Digital Academy</strong><span>Skills training & talent development</span></div>
+        <div class="hm"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><strong>Digital Agency</strong><span>Products & IT solutions</span></div>
+        <div class="hm"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg></div><strong>7 Programs</strong><span>From UI/UX to Cybersecurity</span></div>
+        <div class="hm"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><strong>CAC Certified</strong><span>RC No. 9393238</span></div>
       </div>
     </div>
-    <div class="hero-reg">✅ Incorporated under CAMA 2020 · TIN: 2622456605384</div>
+    <div class="hero-reg"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Incorporated under CAMA 2020 · TIN: 2622456605384</div>
   </div>
 </section>
 
@@ -388,23 +410,23 @@ body.js-ready .fade-up.in{opacity:1;transform:none}
       <p style="font-family:var(--font-body);font-size:16px;color:var(--muted);line-height:1.6;margin-bottom:20px">Ridgeview Innovations Hub Ltd is a technology-driven innovation and digital skills hub focused on empowering individuals and small businesses with practical digital knowledge and tools needed to thrive in today's digital economy.</p>
       <p style="font-family:var(--font-body);font-size:16px;color:var(--muted);line-height:1.6">We exist to make digital skills simple, accessible, and applicable in real-world scenarios — through a unique dual model that combines a learning academy with a live digital agency.</p>
       <div class="mv-grid">
-        <div class="mvc"><div class="ico">🎯</div><h4>Mission</h4><p>To equip individuals and businesses with practical digital skills, tools, and solutions that improve productivity, employability, and business growth.</p></div>
-        <div class="mvc"><div class="ico">👁️</div><h4>Vision</h4><p>To become a leading innovation hub in Africa, shaping a generation of digitally skilled individuals and technology-driven businesses.</p></div>
+        <div class="mvc"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h4>Mission</h4><p>To equip individuals and businesses with practical digital skills, tools, and solutions that improve productivity, employability, and business growth.</p></div>
+        <div class="mvc"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><h4>Vision</h4><p>To become a leading innovation hub in Africa, shaping a generation of digitally skilled individuals and technology-driven businesses.</p></div>
       </div>
       <div class="reg-info">
-        <div class="ri">🏛️</div>
+        <div class="ri"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
         <p><strong>Officially Incorporated · Federal Republic of Nigeria</strong>Registered under the Companies and Allied Matters Act 2020. RC No. 9393238 · Incorporated: 5th March, 2026 · TIN: 2622456605384</p>
       </div>
     </div>
     <div class="avblocks fade-up">
       <div class="avb dark">
-        <div class="aico">🚀</div>
+        <div class="aico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
         <div class="bnum">∞</div>
         <h3>Possibilities Ahead</h3>
         <p>Students from the Academy become interns and work on real Agency projects — reducing cost, building experience, and creating a true innovation community.</p>
       </div>
-      <div class="avb"><div class="aico">🎓</div><h3>Digital Academy</h3><p>Skills training for the next generation of tech talent</p></div>
-      <div class="avb"><div class="aico">💼</div><h3>Digital Agency</h3><p>Real-world IT solutions and digital products for businesses</p></div>
+      <div class="avb"><div class="aico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><h3>Digital Academy</h3><p>Skills training for the next generation of tech talent</p></div>
+      <div class="avb"><div class="aico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><h3>Digital Agency</h3><p>Real-world IT solutions and digital products for businesses</p></div>
       <div class="avb amber"><h3>"Learn. Build. Grow."</h3><p>The Ridgeview Way — practical, community-driven digital education</p></div>
     </div>
   </div>
@@ -418,12 +440,12 @@ body.js-ready .fade-up.in{opacity:1;transform:none}
     <p class="ssub">Hands-on training programs designed around real-world application, not just theory. 70% practical, 30% theory — with capstone projects and internship support.</p>
   </div>
   <div class="prog-grid">
-    <div class="pc fade-up"><div class="pico">🎨</div><h3>UI/UX Design</h3><p>Master user interface and experience design using Figma and industry tools. Build stunning, usable products from scratch.</p><div class="pmeta"><span class="ptag">3–6 months</span><span class="ptag">Beginner friendly</span></div><div class="pchip">From ₦150,000</div></div>
-    <div class="pc fade-up"><div class="pico">💻</div><h3>Software Engineering</h3><p>Frontend, Backend, and Fullstack tracks. Build real applications using modern frameworks and best practices.</p><div class="pmeta"><span class="ptag">3–6 months</span><span class="ptag">Frontend · Backend · Fullstack</span></div><div class="pchip">From ₦200,000</div></div>
-    <div class="pc fade-up"><div class="pico">📊</div><h3>Data Analysis</h3><p>Turn raw data into actionable insights. Learn Excel, SQL, Python, and data visualization tools used by top companies.</p><div class="pmeta"><span class="ptag">3–4 months</span><span class="ptag">Excel · SQL · Python</span></div><div class="pchip">From ₦150,000</div></div>
-    <div class="pc fade-up"><div class="pico">🔐</div><h3>Cybersecurity</h3><p>Protect digital systems and networks. Ethical hacking, security audits, threat detection, and real-world tools.</p><div class="pmeta"><span class="ptag">4–6 months</span><span class="ptag">High demand skill</span></div><div class="pchip">From ₦250,000</div></div>
-    <div class="pc fade-up"><div class="pico">📱</div><h3>Digital Marketing</h3><p>Social media strategy, SEO, content creation, paid ads, and analytics. Become a complete digital marketer.</p><div class="pmeta"><span class="ptag">2–3 months</span><span class="ptag">SME focused</span></div><div class="pchip">From ₦80,000</div></div>
-    <div class="pc fade-up"><div class="pico">🤖</div><h3>AI Tools &amp; No-Code</h3><p>Leverage AI tools and no-code platforms to build products and automate workflows without writing complex code.</p><div class="pmeta"><span class="ptag">6–8 weeks</span><span class="ptag">AI-powered</span></div><div class="pchip">From ₦80,000</div></div>
+    <div class="pc fade-up"><div class="pico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><h3>UI/UX Design</h3><p>Master user interface and experience design using Figma and industry tools. Build stunning, usable products from scratch.</p><div class="pmeta"><span class="ptag">3–6 months</span><span class="ptag">Beginner friendly</span></div><div class="pchip">From ₦150,000</div></div>
+    <div class="pc fade-up"><div class="pico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><h3>Software Engineering</h3><p>Frontend, Backend, and Fullstack tracks. Build real applications using modern frameworks and best practices.</p><div class="pmeta"><span class="ptag">3–6 months</span><span class="ptag">Frontend · Backend · Fullstack</span></div><div class="pchip">From ₦200,000</div></div>
+    <div class="pc fade-up"><div class="pico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><h3>Data Analysis</h3><p>Turn raw data into actionable insights. Learn Excel, SQL, Python, and data visualization tools used by top companies.</p><div class="pmeta"><span class="ptag">3–4 months</span><span class="ptag">Excel · SQL · Python</span></div><div class="pchip">From ₦150,000</div></div>
+    <div class="pc fade-up"><div class="pico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Cybersecurity</h3><p>Protect digital systems and networks. Ethical hacking, security audits, threat detection, and real-world tools.</p><div class="pmeta"><span class="ptag">4–6 months</span><span class="ptag">High demand skill</span></div><div class="pchip">From ₦250,000</div></div>
+    <div class="pc fade-up"><div class="pico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div><h3>Digital Marketing</h3><p>Social media strategy, SEO, content creation, paid ads, and analytics. Become a complete digital marketer.</p><div class="pmeta"><span class="ptag">2–3 months</span><span class="ptag">SME focused</span></div><div class="pchip">From ₦80,000</div></div>
+    <div class="pc fade-up"><div class="pico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 0 2h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1 0-2h1a7 7 0 0 1 7-7h1V5.73A2 2 0 0 1 10 4a2 2 0 0 1 2-2z"/><path d="M7.5 14a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/><path d="M16.5 14a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/></svg></div><h3>AI Tools &amp; No-Code</h3><p>Leverage AI tools and no-code platforms to build products and automate workflows without writing complex code.</p><div class="pmeta"><span class="ptag">6–8 weeks</span><span class="ptag">AI-powered</span></div><div class="pchip">From ₦80,000</div></div>
   </div>
   <div style="text-align:center;margin-top:50px">
     <a href="#contact" class="btn-primary">Enroll in a Program →</a>
@@ -454,10 +476,10 @@ body.js-ready .fade-up.in{opacity:1;transform:none}
     <p class="ssub">The Ridgeview Digital Agency arm delivers custom digital products and IT solutions to SMEs, startups, government bodies, and NGOs.</p>
   </div>
   <div class="svc-grid">
-    <div class="sc fade-up"><div class="sico">🌐</div><div><h3>Website Design &amp; Development</h3><p>From simple landing pages to complex web applications — we design and build digital products that work.</p><ul class="sl"><li>Corporate &amp; business websites</li><li>E-commerce platforms</li><li>Landing pages &amp; portfolios</li><li>Web applications</li></ul><p class="sp">From ₦300,000 – ₦2,000,000</p></div></div>
-    <div class="sc fade-up"><div class="sico">🎨</div><div><h3>UI/UX &amp; Brand Design</h3><p>We create memorable brand identities and intuitive digital experiences that users love.</p><ul class="sl"><li>Brand identity design</li><li>UI/UX for apps &amp; platforms</li><li>Product design for startups</li><li>Design systems</li></ul><p class="sp">From ₦200,000 – ₦1,500,000</p></div></div>
-    <div class="sc fade-up"><div class="sico">🔐</div><div><h3>Cybersecurity &amp; IT Consulting</h3><p>Protect your digital assets and optimize your IT infrastructure with expert guidance.</p><ul class="sl"><li>Cybersecurity audits</li><li>IT consulting &amp; advisory</li><li>System automation</li><li>Security policy setup</li></ul><p class="sp">From ₦500,000+</p></div></div>
-    <div class="sc fade-up"><div class="sico">⚙️</div><div><h3>Maintenance &amp; IT Support</h3><p>Ongoing support so your digital systems stay fast, secure, and updated. Monthly retainer plans available.</p><ul class="sl"><li>Monthly retainer contracts</li><li>Hosting &amp; domain management</li><li>Product maintenance</li><li>Annual IT support</li></ul><p class="sp">Retainers from ₦200,000/month</p></div></div>
+    <div class="sc fade-up"><div class="sico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div><h3>Website Design &amp; Development</h3><p>From simple landing pages to complex web applications — we design and build digital products that work.</p><ul class="sl"><li>Corporate &amp; business websites</li><li>E-commerce platforms</li><li>Landing pages &amp; portfolios</li><li>Web applications</li></ul><p class="sp">From ₦300,000 – ₦2,000,000</p></div></div>
+    <div class="sc fade-up"><div class="sico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div><div><h3>UI/UX &amp; Brand Design</h3><p>We create memorable brand identities and intuitive digital experiences that users love.</p><ul class="sl"><li>Brand identity design</li><li>UI/UX for apps &amp; platforms</li><li>Product design for startups</li><li>Design systems</li></ul><p class="sp">From ₦200,000 – ₦1,500,000</p></div></div>
+    <div class="sc fade-up"><div class="sico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div><h3>Cybersecurity &amp; IT Consulting</h3><p>Protect your digital assets and optimize your IT infrastructure with expert guidance.</p><ul class="sl"><li>Cybersecurity audits</li><li>IT consulting &amp; advisory</li><li>System automation</li><li>Security policy setup</li></ul><p class="sp">From ₦500,000+</p></div></div>
+    <div class="sc fade-up"><div class="sico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><div><h3>Maintenance &amp; IT Support</h3><p>Ongoing support so your digital systems stay fast, secure, and updated. Monthly retainer plans available.</p><ul class="sl"><li>Monthly retainer contracts</li><li>Hosting &amp; domain management</li><li>Product maintenance</li><li>Annual IT support</li></ul><p class="sp">Retainers from ₦200,000/month</p></div></div>
   </div>
 </section>
 
@@ -468,20 +490,20 @@ body.js-ready .fade-up.in{opacity:1;transform:none}
       <div class="stag">Why Ridgeview</div>
       <h2 class="stitle">Built Differently. Built for Real Impact.</h2>
       <div class="why-list">
-        <div class="wi fade-up"><div class="wico">🎯</div><div><h4>Practical, Hands-On Learning</h4><p>70% practical, 30% theory. You build real things from day one — not just watch slides.</p></div></div>
-        <div class="wi fade-up"><div class="wico">🔗</div><div><h4>Academy–Agency Integration</h4><p>Students work on real client projects, gaining experience while keeping our staffing cost low — a win for everyone.</p></div></div>
-        <div class="wi fade-up"><div class="wico">💰</div><div><h4>Affordable &amp; Accessible</h4><p>Flexible payment plans, virtual classes, and bootcamp formats make quality training accessible to all.</p></div></div>
-        <div class="wi fade-up"><div class="wico">🏛️</div><div><h4>Officially Registered Company</h4><p>CAC certified under CAMA 2020. RC No. 9393238. Your investment is with a legitimate institution.</p></div></div>
+        <div class="wi fade-up"><div class="wico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><div><h4>Practical, Hands-On Learning</h4><p>70% practical, 30% theory. You build real things from day one — not just watch slides.</p></div></div>
+        <div class="wi fade-up"><div class="wico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><h4>Academy–Agency Integration</h4><p>Students work on real client projects, gaining experience while keeping our staffing cost low — a win for everyone.</p></div></div>
+        <div class="wi fade-up"><div class="wico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><line x1="9.17" y1="11.03" x2="7" y2="11.03"/></svg></div><div><h4>Affordable &amp; Accessible</h4><p>Flexible payment plans, virtual classes, and bootcamp formats make quality training accessible to all.</p></div></div>
+        <div class="wi fade-up"><div class="wico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/></svg></div><div><h4>Officially Registered Company</h4><p>CAC certified under CAMA 2020. RC No. 9393238. Your investment is with a legitimate institution.</p></div></div>
       </div>
     </div>
     <div class="why-vis fade-up">
       <h3>The Ridgeview Genius Model</h3>
       <p>What makes us unique in Lagos &amp; beyond</p>
       <div class="edges">
-        <div class="ei"><span class="eico">🎓→💼</span><p>Academy students become Agency interns — real experience, real output, real portfolio for every graduate.</p></div>
-        <div class="ei"><span class="eico">💸</span><p>Internal talent pipeline means lower staffing costs — savings passed on as competitive pricing to clients.</p></div>
-        <div class="ei"><span class="eico">📈</span><p>Project-based learning model means every student graduates with a portfolio of real-world work.</p></div>
-        <div class="ei"><span class="eico">🤝</span><p>Community-driven innovation hub — you don't just learn here, you belong here and grow here.</p></div>
+        <div class="ei"><span class="eico"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span><p>Academy students become Agency interns — real experience, real output, real portfolio for every graduate.</p></div>
+        <div class="ei"><span class="eico"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><p>Internal talent pipeline means lower staffing costs — savings passed on as competitive pricing to clients.</p></div>
+        <div class="ei"><span class="eico"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><p>Project-based learning model means every student graduates with a portfolio of real-world work.</p></div>
+        <div class="ei"><span class="eico"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><p>Community-driven innovation hub — you don't just learn here, you belong here and grow here.</p></div>
       </div>
     </div>
   </div>
@@ -495,12 +517,12 @@ body.js-ready .fade-up.in{opacity:1;transform:none}
     <p class="ssub">Join a growing community of learners, builders, and innovators shaping the future of tech in Nigeria.</p>
   </div>
   <div class="comm-grid">
-    <div class="cc fade-up"><span class="cico">🏕️</span><h3>Bootcamps</h3><p>Intensive 8–12 week immersive programs for fast-track learners. Build job-ready skills in record time.</p></div>
-    <div class="cc fade-up"><span class="cico">💻</span><h3>Webinars &amp; Workshops</h3><p>Regular free and paid online sessions on trending tech topics, tools, and career insights.</p></div>
-    <div class="cc fade-up"><span class="cico">🎤</span><h3>Tech Events</h3><p>In-person events across Lagos and other cities. Network with industry professionals and fellow learners.</p></div>
-    <div class="cc fade-up"><span class="cico">🏫</span><h3>Campus Ambassadors</h3><p>We work with student reps across universities to bring digital education to campuses throughout Nigeria.</p></div>
-    <div class="cc fade-up"><span class="cico">🧑‍💼</span><h3>Mentorship Programs</h3><p>Paid 1-on-1 mentorship from experienced professionals in your chosen field. Truly personalized growth.</p></div>
-    <div class="cc fade-up"><span class="cico">💼</span><h3>Internship Placement</h3><p>Top graduates get placed as interns within the Ridgeview Agency and partner companies — paid experience.</p></div>
+    <div class="cc fade-up"><span class="cico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><h3>Bootcamps</h3><p>Intensive 8–12 week immersive programs for fast-track learners. Build job-ready skills in record time.</p></div>
+    <div class="cc fade-up"><span class="cico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span><h3>Webinars &amp; Workshops</h3><p>Regular free and paid online sessions on trending tech topics, tools, and career insights.</p></div>
+    <div class="cc fade-up"><span class="cico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><h3>Tech Events</h3><p>In-person events across Lagos and other cities. Network with industry professionals and fellow learners.</p></div>
+    <div class="cc fade-up"><span class="cico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span><h3>Campus Ambassadors</h3><p>We work with student reps across universities to bring digital education to campuses throughout Nigeria.</p></div>
+    <div class="cc fade-up"><span class="cico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span><h3>Mentorship Programs</h3><p>Paid 1-on-1 mentorship from experienced professionals in your chosen field. Truly personalized growth.</p></div>
+    <div class="cc fade-up"><span class="cico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><path d="M2 14h20"/></svg></span><h3>Internship Placement</h3><p>Top graduates get placed as interns within the Ridgeview Agency and partner companies — paid experience.</p></div>
   </div>
 </section>
 
@@ -564,9 +586,9 @@ body.js-ready .fade-up.in{opacity:1;transform:none}
     <p class="ssub">Tips, guides, and industry insights to keep you informed and ahead of the curve.</p>
   </div>
   <div class="blog-grid">
-    <div class="bc fade-up"><div class="bthumb"><div class="bico">💻</div><div class="blabel">TECH CAREERS</div></div><div class="bcontent"><div class="bdate">March 2026</div><h3>5 Most In-Demand Tech Skills in Nigeria for 2026</h3><p>The Nigerian tech ecosystem is growing fast. Here are the skills employers and clients are willing to pay top naira for right now.</p><a href="#" class="blink">Read More →</a></div></div>
-    <div class="bc fade-up"><div class="bthumb"><div class="bico">📱</div><div class="blabel">BUSINESS GROWTH</div></div><div class="bcontent"><div class="bdate">March 2026</div><h3>Why Every SME in Lagos Needs a Website in 2026</h3><p>Your customers are searching for you online. If you don't have a digital presence, you're invisible. Here's how to fix that.</p><a href="#" class="blink">Read More →</a></div></div>
-    <div class="bc fade-up"><div class="bthumb"><div class="bico">🤖</div><div class="blabel">AI &amp; NO-CODE</div></div><div class="bcontent"><div class="bdate">February 2026</div><h3>How to Use AI Tools to 10x Your Productivity as a Student</h3><p>AI is not here to replace you — it's here to amplify you. Learn the tools making smart students and professionals unstoppable.</p><a href="#" class="blink">Read More →</a></div></div>
+    <div class="bc fade-up"><div class="bthumb"><div class="bico"><svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div class="blabel">TECH CAREERS</div></div><div class="bcontent"><div class="bdate">March 2026</div><h3>5 Most In-Demand Tech Skills in Nigeria for 2026</h3><p>The Nigerian tech ecosystem is growing fast. Here are the skills employers and clients are willing to pay top naira for right now.</p><a href="#" class="blink">Read More →</a></div></div>
+    <div class="bc fade-up"><div class="bthumb"><div class="bico"><svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div><div class="blabel">BUSINESS GROWTH</div></div><div class="bcontent"><div class="bdate">March 2026</div><h3>Why Every SME in Lagos Needs a Website in 2026</h3><p>Your customers are searching for you online. If you don't have a digital presence, you're invisible. Here's how to fix that.</p><a href="#" class="blink">Read More →</a></div></div>
+    <div class="bc fade-up"><div class="bthumb"><div class="bico"><svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg></div><div class="blabel">AI &amp; NO-CODE</div></div><div class="bcontent"><div class="bdate">February 2026</div><h3>How to Use AI Tools to 10x Your Productivity as a Student</h3><p>AI is not here to replace you — it's here to amplify you. Learn the tools making smart students and professionals unstoppable.</p><a href="#" class="blink">Read More →</a></div></div>
   </div>
 </section>
 
@@ -592,10 +614,10 @@ body.js-ready .fade-up.in{opacity:1;transform:none}
     <div class="ci-info">
       <p>Whether you want to enroll in a program, hire us to build your product, or partner with us — we'd love to hear from you.</p>
       <div class="citems">
-        <div class="citem"><div class="ciico">📍</div><div class="ct"><strong>Location</strong><span>Lagos, Nigeria</span></div></div>
-        <div class="citem"><div class="ciico">📧</div><div class="ct"><strong>Email</strong><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="acc4c9c0c0c3ecdec5c8cbc9dac5c9dbc4d9ce82cfc3c1">[email&#160;protected]</a></span></div></div>
-        <div class="citem"><div class="ciico">📞</div><div class="ct"><strong>Phone / WhatsApp</strong><span>+234 810 899 1625</span></div></div>
-        <div class="citem"><div class="ciico">🏛️</div><div class="ct"><strong>Company Registration</strong><span>RC No. 9393238 · Incorporated 5th March, 2026</span></div></div>
+        <div class="citem"><div class="ciico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="ct"><strong>Location</strong><span>Lagos, Nigeria</span></div></div>
+        <div class="citem"><div class="ciico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="ct"><strong>Email</strong><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="acc4c9c0c0c3ecdec5c8cbc9dac5c9dbc4d9ce82cfc3c1">[email&#160;protected]</a></span></div></div>
+        <div class="citem"><div class="ciico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div class="ct"><strong>Phone / WhatsApp</strong><span>+234 810 899 1625</span></div></div>
+        <div class="citem"><div class="ciico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></div><div class="ct"><strong>Company Registration</strong><span>RC No. 9393238 · Incorporated 5th March, 2026</span></div></div>
       </div>
     </div>
     <div class="cform">
