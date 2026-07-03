@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ydams.github.io/ridgeview-website/sitemap.xml

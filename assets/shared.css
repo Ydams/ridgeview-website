@@ -279,7 +279,7 @@ section{padding:100px 6%}
 .cta-acts{display:flex;gap:14px;flex-wrap:wrap}
 
 /* ============ CONTACT ============ */
-.contact-g{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.contact-g{display:grid;grid-template-columns:0.95fr 0.85fr 1.1fr;gap:40px;align-items:stretch}
 .ci-info h3{font-family:var(--font-body);font-size:22px;font-weight:700;margin-bottom:16px;color:var(--ink-dark)}
 .ci-info>p{font-family:var(--font-body);font-size:16px;color:var(--muted);line-height:1.313;margin-bottom:36px}
 .citems{display:flex;flex-direction:column;gap:18px}
@@ -287,6 +287,14 @@ section{padding:100px 6%}
 .ciico{width:44px;height:44px;background:var(--paper);border:1px solid var(--bd);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .citem .ct strong{font-family:var(--font-body);font-size:13px;font-weight:700;display:block;margin-bottom:2px;color:var(--ink-dark)}
 .citem .ct span{font-family:var(--font-body);font-size:16px;color:var(--muted)}
+.contact-img{position:relative;border-radius:var(--rl);overflow:hidden;min-height:460px}
+.contact-img img{width:100%;height:100%;object-fit:cover;display:block}
+.contact-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,53,133,0) 45%,rgba(0,53,133,.65) 100%)}
+.cimg-badge{position:absolute;left:16px;right:16px;bottom:16px;z-index:2;background:#fff;border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 12px 30px rgba(0,20,60,.2)}
+.cimg-badge .cib-ico{width:38px;height:38px;border-radius:10px;background:var(--brand);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cimg-badge .cib-ico svg{width:18px;height:18px;color:#fff}
+.cimg-badge strong{display:block;font-family:var(--font-body);font-size:14px;font-weight:700;color:var(--ink-dark)}
+.cimg-badge span{font-family:var(--font-body);font-size:12px;color:var(--muted)}
 .cform{background:var(--paper);border-radius:var(--rl);padding:44px;border:1px solid var(--bd)}
 .cform h3{font-family:var(--font-body);font-size:22px;font-weight:700;margin-bottom:24px;color:var(--ink-dark)}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -378,7 +386,11 @@ body.js-ready .fade-up.in{opacity:1;transform:none}
 @media(max-width:1024px){
   .hero{grid-template-columns:1fr;padding:calc(var(--nav-h) + 40px) 6% 60px;min-height:auto}
   .hero-right{display:none}
-  .about-g,.why-g,.contact-g{grid-template-columns:1fr}
+  .about-g,.why-g{grid-template-columns:1fr}
+  .contact-g{grid-template-columns:1fr}
+  .contact-img{min-height:280px;order:2}
+  .cform{order:3}
+  .ci-info{order:1}
   .why-vis{display:none}
   .prog-grid,.team-grid,.tier-grid,.partner-benefits,.careers-values{grid-template-columns:1fr 1fr}
   .fg-grid{grid-template-columns:1fr 1fr}
@@ -402,6 +414,7 @@ body.js-ready .fade-up.in{opacity:1;transform:none}
   .avb.dark{grid-row:auto}
   .job-card{flex-direction:column;align-items:flex-start}
   .newsletter-box{flex-direction:column;text-align:center;justify-content:center}
+  .contact-img{min-height:220px}
 }
 @media(max-width:480px){
   .steps,.avblocks,.fg-grid{grid-template-columns:1fr}
