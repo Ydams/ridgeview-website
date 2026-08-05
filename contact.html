@@ -90,15 +90,15 @@
 
     <div class="cform">
       <h3>Send Us a Message</h3>
-      <form onsubmit="event.preventDefault(); submitForm(this.querySelector('.fsub'))">
+      <form id="contactForm" action="https://formspree.io/f/xeozzydb" method="POST" onsubmit="event.preventDefault(); submitForm(this)">
         <div class="frow">
-          <div class="fg"><label>First Name</label><input type="text" placeholder="John" required/></div>
-          <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe" required/></div>
+          <div class="fg"><label for="cfFirst">First Name</label><input id="cfFirst" name="First Name" type="text" autocomplete="given-name" placeholder="John" required/></div>
+          <div class="fg"><label for="cfLast">Last Name</label><input id="cfLast" name="Last Name" type="text" autocomplete="family-name" placeholder="Doe" required/></div>
         </div>
-        <div class="fg"><label>Email Address</label><input type="email" placeholder="you@example.com" required/></div>
+        <div class="fg"><label for="cfEmail">Email Address</label><input id="cfEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required/></div>
         <div class="fg">
-          <label>I'm interested in…</label>
-          <select>
+          <label for="cfInterest">I'm interested in…</label>
+          <select id="cfInterest" name="Interested In">
             <option>Enrolling in a program</option>
             <option>Corporate training</option>
             <option>Schools partnership</option>
@@ -110,8 +110,11 @@
             <option>Something else</option>
           </select>
         </div>
-        <div class="fg"><label>Your Message</label><textarea placeholder="Tell us more about what you need…" required></textarea></div>
+        <div class="fg"><label for="cfMessage">Your Message</label><textarea id="cfMessage" name="Message" placeholder="Tell us more about what you need…" required></textarea></div>
+        <input type="hidden" name="_subject" value="New enquiry from ridgeviewinnovations.com"/>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"/>
         <button type="submit" class="fsub">Send Message →</button>
+        <p class="fstatus" role="status" aria-live="polite" style="display:none;margin-top:14px;margin-bottom:0;font-family:var(--font-body);font-size:14px;font-weight:600;line-height:1.5;text-align:center"></p>
       </form>
     </div>
   </div>
