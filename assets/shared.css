@@ -421,3 +421,40 @@ body.js-ready .fade-up.in{opacity:1;transform:none}
   section{padding:70px 5%}
   .page-header{padding:calc(var(--nav-h) + 40px) 5% 44px}
 }
+
+/* ============================================================
+   JOB APPLICATION MODAL + STANDALONE APPLY PAGE
+   Prefix .rva- keeps these separate from the .rv- chatbot classes
+   ============================================================ */
+.rva-ov{position:fixed;inset:0;z-index:10000;background:rgba(13,15,20,.55);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .22s ease,visibility .22s}
+.rva-ov.open{opacity:1;visibility:visible}
+body.rva-locked{overflow:hidden}
+.rva-panel{width:100%;max-width:580px;max-height:calc(100vh - 40px);background:var(--cream);border-radius:var(--rl);border:1px solid var(--bd);box-shadow:0 30px 80px rgba(0,20,60,.32);overflow-y:auto;transform:translateY(16px) scale(.98);transition:transform .22s ease}
+.rva-ov.open .rva-panel{transform:none}
+
+.rva-head{background:var(--brand);padding:26px 30px;position:relative}
+.rva-head .rva-tag{display:inline-block;background:var(--accent);color:#fff;padding:4px 12px;border-radius:50px;font-family:var(--font-body);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.rva-head h3{font-family:var(--font-hero);font-size:22px;font-weight:800;color:#fff;line-height:1.2;padding-right:40px}
+.rva-head p{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.75);margin-top:7px;line-height:1.5}
+.rva-x{position:absolute;top:18px;right:18px;width:34px;height:34px;border:none;border-radius:10px;background:rgba(255,255,255,.16);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:0;transition:background .2s}
+.rva-x:hover{background:rgba(255,255,255,.3)}
+.rva-x svg{width:17px;height:17px}
+
+.rva-body{padding:28px 30px 32px}
+.rva-body .fg input[readonly]{background:var(--brand-light);border-color:rgba(0,74,173,.22);color:var(--brand);font-weight:700;cursor:default}
+.fstatus{display:none;margin-top:16px;font-family:var(--font-body);font-size:14px;line-height:1.55;text-align:center}
+.rva-note{margin-top:16px;font-family:var(--font-body);font-size:12px;color:var(--muted);text-align:center;line-height:1.5}
+.rva-note a{color:var(--brand);font-weight:700}
+
+.apply-wrap{max-width:640px;margin:0 auto}
+.apply-wrap .cform{padding:38px}
+.apply-copy{text-align:center;margin-bottom:34px}
+.apply-copy h2{font-family:var(--font-hero);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;margin-bottom:12px;color:#1f2625}
+.apply-copy p{font-family:var(--font-body);font-size:16px;color:var(--muted);line-height:1.55}
+
+@media(max-width:560px){
+  .rva-panel{border-radius:20px}
+  .rva-head{padding:22px}
+  .rva-body{padding:22px}
+  .apply-wrap .cform{padding:26px}
+}

@@ -223,7 +223,7 @@ function submitNewsletter(form){
     },
     {
       keys: ['enroll','enrol','enrollment','register','registration','apply','sign up','join a program','admission','how do i start'],
-      reply: "Enrolling takes three steps:<br>1. Pick your program on the <a href=\"programs.html\">Programs page</a><br>2. Fill the <a href=\"contact.html\">contact form</a> and select the program under “I'm interested in…”, or message WhatsApp <strong>" + PHONE + "</strong><br>3. Admissions walks you through cohort dates and payment plans<br><br>You'll hear back within 24hrs on working days.",
+      reply: "Enrolling takes three steps:<br>1. Pick your program on the <a href=\"programs.html\">Programs page</a><br>2. Fill the <a href=\"contact.html\">contact form</a> and select the program under “I'm interested in…”, or message WhatsApp <strong>" + PHONE + "</strong><br>3. Admissions walks you through cohort dates and payment plans<br><br>You'll hear back within 24hrs on working days.<br><br>Looking for a <em>job</em> instead? <a href=\"careers.html\">See open roles →</a>",
       chips: ['See all programs', 'Payment plans', 'Are classes virtual?']
     },
     {
@@ -238,7 +238,7 @@ function submitNewsletter(form){
     },
     {
       keys: ['internship','intern','job placement','placement','career support','get a job','employment','hire me'],
-      reply: "Top-performing students are selected for <strong>paid internships</strong> inside the Ridgeview Digital Agency, working on live client projects. Strong interns are then considered for full-time roles as the agency scales.<br><br>Every graduate also gets career support and joins the alumni network. <a href=\"careers.html\">See the pipeline →</a>",
+      reply: "Top-performing students are selected for <strong>paid internships</strong> inside the Ridgeview Digital Agency, working on live client projects. Strong interns are then considered for full-time roles as the agency scales.<br><br>Every graduate also gets career support and joins the alumni network. <a href=\"careers.html\">See the pipeline →</a> or <a href=\"apply.html\">apply directly →</a>",
       chips: ['Open roles', 'See all programs', 'How do I enroll?']
     },
     {
@@ -273,7 +273,7 @@ function submitNewsletter(form){
     },
     {
       keys: ['careers','career','jobs','job','vacancy','vacancies','open roles','hiring','work at ridgeview','volunteer','apply for a job','cv','resume'],
-      reply: "We hire in small batches as cohorts and client projects grow. Currently listed: Frontend Developer Intern, UI/UX Design Facilitator, Digital Marketing Associate, Community &amp; Events Coordinator — plus an open general application.<br><br><a href=\"careers.html\">See open roles →</a>",
+      reply: "We hire in small batches as cohorts and client projects grow. Currently listed: Frontend Developer Intern, UI/UX Design Facilitator, Digital Marketing Associate, Community &amp; Events Coordinator — plus an open general application.<br><br><a href=\"careers.html\">See open roles →</a> or <a href=\"apply.html\">start an application →</a>",
       chips: ['Internship pathway', 'Talk to a human', 'What is Ridgeview?']
     },
     {
@@ -529,5 +529,205 @@ function submitNewsletter(form){
     document.addEventListener('DOMContentLoaded', build);
   } else {
     build();
+  }
+})();
+
+/* =====================================================================
+   JOB APPLICATION MODAL — site-wide
+
+   1. Injects one application modal into every page that loads shared.js
+   2. Any link/button with data-apply="Role Name" opens it, role locked in
+   3. Submits to Formspree, so you get an email the moment someone applies
+   4. Deep links: careers.html?role=Frontend%20Developer%20Intern opens the
+      modal automatically. apply.html?role=... is the standalone shareable page.
+   5. With JavaScript off, the Apply links simply navigate to apply.html
+   ===================================================================== */
+(function () {
+  if (window.__rvApplyModal) return;
+  window.__rvApplyModal = true;
+
+  var ENDPOINT = 'https://formspree.io/f/xeozzydb';
+  var WA_LINK  = 'https://wa.me/2348108991625';
+
+  var ov, titleEl, roleInput, subjInput, form, opener;
+
+  /* ---------- Shared submit handler (apply.html uses this too) ---------- */
+  function submitApplication(theForm) {
+    var btn      = theForm.querySelector('.fsub');
+    var status   = theForm.querySelector('.fstatus');
+    var endpoint = theForm.getAttribute('action') || ENDPOINT;
+
+    if (typeof theForm.reportValidity === 'function' && !theForm.reportValidity()) return;
+
+    var original = btn.getAttribute('data-original') || btn.textContent;
+    btn.setAttribute('data-original', original);
+
+    function setStatus(msg, colour) {
+      if (!status) return;
+      status.textContent = msg || '';
+      status.style.color = colour || '';
+      status.style.display = msg ? 'block' : 'none';
+    }
+
+    function reset(delay) {
+      setTimeout(function () {
+        btn.textContent = original;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, delay || 5000);
+    }
+
+    // Stamp the role onto the email subject so you can triage at a glance
+    var roleField = theForm.querySelector('[name="Role"]');
+    var subject   = theForm.querySelector('[name="_subject"]');
+    var roleValue = roleField ? roleField.value : '';
+    if (subject) {
+      subject.value = 'New Job Application — ' + (roleValue || 'General Application');
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    btn.style.background = '';
+    setStatus('', '');
+
+    fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(theForm)
+    })
+    .then(function (res) {
+      return res.json().catch(function () { return {}; }).then(function (data) {
+        return { ok: res.ok, data: data };
+      });
+    })
+    .then(function (result) {
+      if (!result.ok) {
+        var detail = result.data && result.data.errors && result.data.errors.length
+          ? result.data.errors.map(function (e) { return e.message; }).join(', ')
+          : 'We could not send that application.';
+        throw new Error(detail);
+      }
+      theForm.reset();
+      // keep the role visible after reset so the applicant sees what was sent
+      if (roleField && roleField.tagName === 'INPUT') roleField.value = roleValue;
+      btn.textContent = '✓ Application received';
+      btn.style.background = '#1a6b45';
+      setStatus('Thank you — your application is with our team. Shortlisted candidates are contacted within 5 working days.', '#1a6b45');
+      reset(6000);
+    })
+    .catch(function (err) {
+      btn.textContent = 'Not sent — try again';
+      btn.style.background = '#b91c1c';
+      setStatus((err && err.message ? err.message : 'Something went wrong.') +
+                ' You can also send it on WhatsApp: +234 810 899 1625.', '#b91c1c');
+      reset(5000);
+    });
+  }
+  window.submitApplication = submitApplication;
+
+  /* ---------- Modal markup ---------- */
+  function buildApply() {
+    ov = document.createElement('div');
+    ov.className = 'rva-ov';
+    ov.setAttribute('role', 'dialog');
+    ov.setAttribute('aria-modal', 'true');
+    ov.setAttribute('aria-label', 'Job application form');
+    ov.innerHTML =
+      '<div class="rva-panel">' +
+        '<div class="rva-head">' +
+          '<span class="rva-tag">Apply</span>' +
+          '<h3 class="rva-title">General Application</h3>' +
+          '<p>Takes about two minutes. We reply to shortlisted candidates within 5 working days.</p>' +
+          '<button class="rva-x" type="button" aria-label="Close application form">' +
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>' +
+          '</button>' +
+        '</div>' +
+        '<div class="rva-body">' +
+          '<form action="' + ENDPOINT + '" method="POST" novalidate>' +
+            '<input type="hidden" name="_subject" value="New Job Application">' +
+            '<input type="hidden" name="form_name" value="Job Application">' +
+            '<div class="fg">' +
+              '<label>Role you are applying for</label>' +
+              '<input type="text" name="Role" readonly required>' +
+            '</div>' +
+            '<div class="frow">' +
+              '<div class="fg"><label>Full name</label><input type="text" name="Full name" required placeholder="Your full name"></div>' +
+              '<div class="fg"><label>Email</label><input type="email" name="email" required placeholder="you@email.com"></div>' +
+            '</div>' +
+            '<div class="frow">' +
+              '<div class="fg"><label>Phone / WhatsApp</label><input type="tel" name="Phone" required placeholder="+234 800 000 0000"></div>' +
+              '<div class="fg"><label>Portfolio, LinkedIn or CV link</label><input type="url" name="CV or portfolio link" placeholder="https://"></div>' +
+            '</div>' +
+            '<div class="fg">' +
+              '<label>Why are you a good fit?</label>' +
+              '<textarea name="Message" required placeholder="A short paragraph is enough — tell us what you have built or taught." style="min-height:104px"></textarea>' +
+            '</div>' +
+            '<button type="submit" class="fsub">Submit Application</button>' +
+            '<div class="fstatus"></div>' +
+            '<p class="rva-note">Prefer to send it another way? <a href="' + WA_LINK + '" target="_blank" rel="noopener">WhatsApp us</a>.</p>' +
+          '</form>' +
+        '</div>' +
+      '</div>';
+
+    document.body.appendChild(ov);
+
+    titleEl   = ov.querySelector('.rva-title');
+    roleInput = ov.querySelector('[name="Role"]');
+    subjInput = ov.querySelector('[name="_subject"]');
+    form      = ov.querySelector('form');
+
+    ov.querySelector('.rva-x').addEventListener('click', closeApply);
+    ov.addEventListener('click', function (e) { if (e.target === ov) closeApply(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && ov.classList.contains('open')) closeApply();
+    });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitApplication(form);
+    });
+
+    // Any element carrying data-apply opens the modal instead of navigating
+    document.addEventListener('click', function (e) {
+      var trigger = e.target.closest ? e.target.closest('[data-apply]') : null;
+      if (!trigger) return;
+      e.preventDefault();
+      opener = trigger;
+      openApply(trigger.getAttribute('data-apply'));
+    });
+
+    // Deep link support: ?role=Frontend%20Developer%20Intern
+    // Skipped on apply.html, which renders the form inline instead.
+    var page = window.location.pathname.split('/').pop() || 'index.html';
+    if (page.indexOf('apply') !== 0) {
+      var role = new URLSearchParams(window.location.search).get('role');
+      if (role) setTimeout(function () { openApply(role); }, 260);
+    }
+  }
+
+  function openApply(role) {
+    var name = (role || '').trim() || 'General Application';
+    titleEl.textContent = name;
+    roleInput.value = name;
+    subjInput.value = 'New Job Application — ' + name;
+    ov.classList.add('open');
+    document.body.classList.add('rva-locked');
+    setTimeout(function () {
+      var first = form.querySelector('[name="Full name"]');
+      if (first) first.focus();
+    }, 240);
+  }
+
+  function closeApply() {
+    ov.classList.remove('open');
+    document.body.classList.remove('rva-locked');
+    if (opener && opener.focus) opener.focus();
+  }
+
+  window.openApplyForm = openApply;   // call openApplyForm('Role') from anywhere
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', buildApply);
+  } else {
+    buildApply();
   }
 })();
