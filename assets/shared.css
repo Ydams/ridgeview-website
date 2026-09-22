@@ -458,3 +458,75 @@ body.rva-locked{overflow:hidden}
   .rva-body{padding:22px}
   .apply-wrap .cform{padding:26px}
 }
+
+/* ============================================================
+   CAREERS: INTERNSHIP ROLE CARDS + APPLICATION MODAL
+   Prefix .rvj- keeps these separate from .rv- (chatbot) and .rva-
+   ============================================================ */
+.rvj-perks{display:flex;flex-wrap:wrap;gap:10px;margin:-28px 0 32px}
+.rvj-perks li{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:50px;background:var(--brand-light);border:1px solid var(--bd);color:var(--brand);font-family:var(--font-body);font-size:13px;font-weight:700}
+.rvj-perks li svg{width:14px;height:14px;flex-shrink:0}
+.rvj-roles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.rvj-role{--rvj-accent:#00E5FF;display:flex;flex-direction:column;gap:16px;padding:32px 30px;border-radius:var(--rl);color:#E8EDFB;
+  background-color:#0B1A45;background-image:repeating-linear-gradient(115deg,transparent 0 70px,rgba(255,255,255,.03) 70px 140px);
+  border:1px solid rgba(255,255,255,.08);border-top:4px solid var(--rvj-accent);scroll-margin-top:calc(var(--nav-h) + 30px)}
+.rvj-role header{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.rvj-pill{padding:6px 14px;border:1.5px solid var(--rvj-accent);border-radius:50px;color:var(--rvj-accent);font-family:var(--font-body);font-size:12px;font-weight:700;letter-spacing:.03em}
+.rvj-role h3{font-family:var(--font-hero);font-weight:800;font-size:clamp(21px,2.3vw,26px);line-height:1.55;color:#fff}
+.rvj-mark{background:var(--rvj-accent);color:#0A1433;padding:.04em .35em;border-radius:8px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.rvj-role h3 small{font-size:.72em;font-weight:700;color:rgba(255,255,255,.75)}
+.rvj-focus{font-family:var(--font-body);font-size:13px;font-weight:500;color:rgba(232,237,251,.6)}
+.rvj-summary{font-family:var(--font-body);font-size:15px;line-height:1.65;color:rgba(232,237,251,.86)}
+.rvj-jd{border-top:1px solid rgba(255,255,255,.1);padding-top:14px}
+.rvj-jd summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--rvj-accent);font-family:var(--font-body);font-size:14px;font-weight:700}
+.rvj-jd summary::-webkit-details-marker{display:none}
+.rvj-jd summary::after{content:"+";font-size:22px;line-height:1;transition:transform .2s}
+.rvj-jd[open] summary::after{transform:rotate(45deg)}
+.rvj-jd h4{margin:18px 0 8px;font-family:var(--font-body);font-size:14px;font-weight:700;color:#fff}
+.rvj-jd ul{list-style:disc;padding-left:18px}
+.rvj-jd li{font-family:var(--font-body);font-size:14px;line-height:1.6;color:rgba(232,237,251,.8);margin-bottom:4px}
+.rvj-jd li::marker{color:var(--rvj-accent)}
+.rvj-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.rvj-meta span{padding:7px 13px;border-radius:50px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font-family:var(--font-body);font-size:13px;font-weight:500}
+.rvj-meta strong{color:#fff}
+.rvj-actions{display:flex;flex-wrap:wrap;gap:10px}
+.rvj-apply,.rvj-share{padding:12px 24px;border-radius:50px;font-family:var(--font-body);font-size:15px;font-weight:700;cursor:pointer;transition:filter .2s,background .2s}
+.rvj-apply{background:var(--rvj-accent);color:#0A1433;border:0}
+.rvj-apply:hover{filter:brightness(1.1)}
+.rvj-share{background:transparent;color:#E8EDFB;border:1px solid rgba(255,255,255,.25)}
+.rvj-share:hover{background:rgba(255,255,255,.08)}
+.rvj-role .rvj-apply:focus-visible,.rvj-role .rvj-share:focus-visible,.rvj-jd summary:focus-visible{outline:3px solid var(--rvj-accent);outline-offset:3px}
+.rvj-cta{border:0;cursor:pointer}
+
+/* Application modal */
+.rvj-ov{position:fixed;inset:0;z-index:10000;background:rgba(13,15,20,.55);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:20px}
+.rvj-ov[hidden]{display:none}
+.rvj-panel{--rvj-accent:var(--accent);width:100%;max-width:600px;max-height:calc(100vh - 40px);background:var(--cream);border-radius:var(--rl);border:1px solid var(--bd);box-shadow:0 30px 80px rgba(0,20,60,.32);overflow-y:auto;animation:rvjIn .22s ease-out}
+@keyframes rvjIn{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+.rvj-head{background:#0B1A45;padding:26px 30px;position:relative;border-bottom:4px solid var(--rvj-accent)}
+.rvj-tag{display:inline-block;background:var(--rvj-accent);color:#0A1433;padding:4px 12px;border-radius:50px;font-family:var(--font-body);font-size:12px;font-weight:700;margin-bottom:10px}
+.rvj-head h3{font-family:var(--font-hero);font-size:22px;font-weight:800;color:#fff;line-height:1.25;padding-right:40px}
+.rvj-head p{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.72);margin-top:7px;line-height:1.5}
+.rvj-x{position:absolute;top:18px;right:18px;width:34px;height:34px;border:none;border-radius:10px;background:rgba(255,255,255,.14);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:0;transition:background .2s}
+.rvj-x:hover{background:rgba(255,255,255,.28)}
+.rvj-x svg{width:17px;height:17px}
+.rvj-body{padding:28px 30px 32px}
+.rvj-opt{font-weight:400;color:var(--muted)}
+.rvj-body .fg textarea{min-height:110px}
+.rvj-body .fsub:disabled{opacity:.6;cursor:wait;transform:none}
+.rvj-status{margin-top:14px;font-family:var(--font-body);font-size:14px;line-height:1.5;text-align:center;min-height:1em}
+.rvj-status.err{color:#c62828}
+.rvj-done{padding:40px 30px;text-align:center}
+.rvj-done-ico{width:64px;height:64px;border-radius:50%;background:var(--brand-light);color:var(--green);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.rvj-done-ico svg{width:30px;height:30px}
+.rvj-done h3{font-family:var(--font-hero);font-size:24px;font-weight:800;margin-bottom:10px}
+.rvj-done p{font-family:var(--font-body);font-size:15px;color:var(--muted);line-height:1.6;margin-bottom:24px}
+@media(prefers-reduced-motion:reduce){.rvj-panel{animation:none}}
+@media(max-width:860px){.rvj-roles{grid-template-columns:1fr}.rvj-role{padding:26px 22px}}
+@media(max-width:560px){.rvj-head,.rvj-body{padding:22px}.rvj-panel{border-radius:20px}.rvj-perks{margin-top:-36px}}
+
+/* ============ ABOUT: FOUNDER PHOTO ============ */
+.tmc-photo{display:block;width:136px;height:136px;margin:0 auto 18px;padding:4px;border-radius:50%;background:linear-gradient(135deg,var(--brand),#00E5FF);box-shadow:0 14px 32px -12px rgba(0,74,173,.5)}
+.tmc-photo img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid #fff}
+.tmc-founder{border-color:rgba(0,74,173,.3)}
+.tmc-founder h4{font-size:18px}

@@ -541,6 +541,11 @@ function submitNewsletter(form){
    4. Deep links: careers.html?role=Frontend%20Developer%20Intern opens the
       modal automatically. apply.html?role=... is the standalone shareable page.
    5. With JavaScript off, the Apply links simply navigate to apply.html
+
+   NOTE: careers.html now has its own dedicated role-card modal (the
+   .rvj- system defined inline in careers.html). This legacy modal is
+   excluded from auto-opening on that page so the two don't both fire
+   on the same ?role= parameter and stack on top of each other.
    ===================================================================== */
 (function () {
   if (window.__rvApplyModal) return;
@@ -696,9 +701,11 @@ function submitNewsletter(form){
     });
 
     // Deep link support: ?role=Frontend%20Developer%20Intern
-    // Skipped on apply.html, which renders the form inline instead.
+    // Skipped on apply.html (renders the form inline instead) and on
+    // careers.html (which has its own dedicated .rvj- role-card modal —
+    // letting this one also auto-open there caused two modals to stack).
     var page = window.location.pathname.split('/').pop() || 'index.html';
-    if (page.indexOf('apply') !== 0) {
+    if (page.indexOf('apply') !== 0 && page.indexOf('careers') !== 0) {
       var role = new URLSearchParams(window.location.search).get('role');
       if (role) setTimeout(function () { openApply(role); }, 260);
     }
