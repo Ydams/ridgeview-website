@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>TeachOS School Partnership Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--g:#0B3B2C;--gd:#072A20;--gold:#D4A017;--goldt:#B08A12;--cream:#F3EEE5;--card:#FBF9F4;--lg:#E7EEE9;--ink:#1C2924;--mut:#4A554F;--line:#E2DACB;
+  --serif:'Lora',Georgia,serif;--sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{background:#5d6461;font-family:var(--sans);color:var(--ink);font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
+svg{display:block;flex-shrink:0}
+ul{list-style:none}
+em{font-style:italic;color:var(--goldt)}
+
+/* ---------- toolbar (screen only) ---------- */
+.tb{position:sticky;top:0;z-index:10;display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 16px;padding:14px 20px;background:var(--gd);color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.tb-back{color:rgba(255,255,255,.75);text-decoration:none;font-size:13px;font-weight:600;align-self:center}
+.tb-f{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px;flex:1 1 520px}
+.tb-f label{display:flex;flex-direction:column;gap:4px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.65);flex:1 1 150px}
+.tb-f label:first-child{flex:2 1 240px}
+.tb-f input{font:500 14px var(--sans);padding:9px 11px;border-radius:9px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;width:100%}
+.tb-f input::placeholder{color:rgba(255,255,255,.4)}
+.tb-f input:focus{outline:2px solid var(--gold);outline-offset:1px}
+.tb-f input[type=date]{color-scheme:dark}
+.tb-up{font:700 14px var(--sans);padding:10px 16px;border-radius:9px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;cursor:pointer}
+.tb-up:hover{background:rgba(255,255,255,.1)}
+.tb-dl{display:inline-flex;align-items:center;gap:8px;font:800 14.5px var(--sans);padding:11px 20px;border-radius:50px;border:0;background:var(--gold);color:var(--gd);cursor:pointer}
+.tb-dl:hover{filter:brightness(1.07)}
+.tb-dl:disabled{opacity:.6;cursor:wait}
+.tb-hint{flex-basis:100%;font-size:12px;color:rgba(255,255,255,.6)}
+.tb-hint b{color:#fff}
+
+/* ---------- document ---------- */
+.doc{width:794px;margin:28px auto 60px;transform-origin:top center}
+.pg{position:relative;width:794px;height:1123px;overflow:hidden;background:var(--cream);padding:58px 60px 0;margin-bottom:28px;box-shadow:0 14px 40px rgba(0,0,0,.35);break-after:page;page-break-after:always}
+.pg:last-child{break-after:auto;page-break-after:auto}
+
+.lg{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:5px;background:var(--g);color:var(--gold)}
+.lg svg{width:11px;height:11px}
+.lg-l{width:34px;height:34px;border-radius:9px;background:var(--gold);color:var(--gd)}
+.lg-l svg{width:20px;height:20px}
+
+.eb{display:flex;align-items:center;gap:10px;font:700 9.5px var(--sans);letter-spacing:.2em;color:var(--goldt);margin-bottom:10px;text-transform:uppercase}
+.eb::before{content:'';width:34px;height:1.5px;background:var(--gold);flex-shrink:0}
+.eb-gold{color:var(--gold)}
+h2{font:500 33px/1.12 var(--serif);color:var(--g);letter-spacing:-.005em;margin-bottom:14px}
+h2 em,h3 em{font-style:italic;color:var(--goldt)}
+.h2s{font-size:27px}
+.lede{font:400 13.6px/1.62 var(--sans);color:#2b3833;margin-bottom:26px;letter-spacing:.005em}
+.lede.sm{margin-bottom:16px}
+h4{font:700 12.6px/1.3 var(--sans);color:var(--gd);margin-bottom:5px}
+p{font-size:11.2px;line-height:1.55;color:var(--mut)}
+small{display:block;font:700 8.4px var(--sans);letter-spacing:.18em;color:var(--goldt)}
+
+.ic{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:7px;background:var(--g);color:#fff}
+.ic svg{width:15px;height:15px}
+.ic.g{background:var(--gold);color:var(--gd)}
+
+/* footer */
+.pf{position:absolute;left:60px;right:60px;bottom:30px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:12px;border-top:1px solid var(--line);font-size:9px;color:var(--mut)}
+.pf-b{display:flex;align-items:center;gap:7px;font:800 11px var(--sans);color:var(--gd)}
+.pf-c{flex:1;text-align:center;letter-spacing:.16em;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pf-r b{color:var(--gd);font-weight:700}
+
+/* ---------- 1 cover ---------- */
+.cover{background:var(--gd);color:#fff;padding:0}
+.cv-photo{position:absolute;inset:0 0 auto 0;height:62%;background:url(assets/teachos/proposal-photo.jpg) 40% 30%/cover no-repeat}
+.cv-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,42,32,.35) 0%,rgba(7,42,32,.55) 45%,var(--gd) 100%)}
+.cv-top{position:absolute;top:52px;left:60px;right:60px;display:flex;align-items:center;gap:10px}
+.cv-top b{font:800 19px var(--sans)}
+.cv-pill{margin-left:auto;padding:7px 14px;border:1px solid rgba(255,255,255,.55);border-radius:50px;font:700 8.4px var(--sans);letter-spacing:.2em;background:rgba(7,42,32,.35)}
+.cv-main{position:absolute;left:60px;right:60px;top:560px}
+.cv-main .eb{margin-bottom:16px}
+.cover h1{font:500 55px/1.06 var(--serif);letter-spacing:-.01em;color:#fff;margin-bottom:22px}
+.cover h1 em{color:#E7B93A}
+.cv-main p{font:400 16px/1.5 var(--sans);color:rgba(255,255,255,.9)}
+.cv-meta{position:absolute;left:60px;right:60px;bottom:96px;display:grid;grid-template-columns:1fr 1.15fr .75fr;gap:20px;padding-top:24px;border-top:1px solid rgba(255,255,255,.22)}
+.cv-meta small{color:var(--gold);margin-bottom:9px}
+.cv-meta b{display:block;font:700 13px var(--sans);color:#fff;margin-bottom:3px}
+.cv-meta span{font-size:10.8px;color:rgba(255,255,255,.65)}
+.cv-bar{position:absolute;left:0;right:0;bottom:0;height:50px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;background:var(--gold);color:var(--gd);font:600 10px var(--sans)}
+.cv-bar b{font-weight:800}
+
+/* ---------- 2 ---------- */
+.memo{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:11px;overflow:hidden;background:#fff;margin:22px 0 32px}
+.memo>div{padding:16px 18px}
+.memo>div:nth-child(2){border-left:1px solid var(--line)}
+.memo-s{grid-column:1/-1;background:var(--lg);border-top:1px solid var(--line)}
+.memo small{margin-bottom:6px}
+.memo p{font:500 12.4px/1.45 var(--sans);color:var(--ink)}
+.memo-s p b{font-weight:600}
+.case{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:12px 0 30px}
+.case>div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 18px 24px}
+.case small{color:var(--mut);margin-bottom:10px}
+.case .big{font:800 34px/1 var(--sans);letter-spacing:-.03em;color:var(--gd);margin-bottom:12px;white-space:nowrap}
+.case .big i{font-style:normal;font-size:13px;letter-spacing:0;font-weight:700}
+.case .big i.u{font-size:13px;margin-right:2px}
+.case p{font-size:10.8px;color:#3a4540}
+.case .dk{background:var(--g);border-color:var(--g)}
+.case .dk small{color:var(--gold)}
+.case .dk .big,.case .dk p{color:#fff}
+.case .dk p{color:rgba(255,255,255,.85)}
+.offer{display:grid;grid-template-columns:.38fr .62fr;border-radius:14px;overflow:hidden;background:var(--g);height:268px}
+.of-img{background:url(assets/teachos/proposal-photo.jpg) 22% 20%/cover;position:relative}
+.of-img::after{content:'';position:absolute;inset:0;background:rgba(7,42,32,.35)}
+.of-tx{padding:26px 26px 22px}
+.offer h3{font:500 25px/1.18 var(--serif);color:#fff;margin:4px 0 14px}
+.offer h3 em{color:#E7B93A}
+.offer p{font-size:12px;line-height:1.6;color:rgba(255,255,255,.88);margin-bottom:14px}
+.of-ck{display:flex;flex-wrap:wrap;gap:16px;font:700 10.4px var(--sans);color:#fff}
+.of-ck span{display:flex;align-items:center;gap:5px}
+.of-ck svg{color:var(--gold)}
+
+/* ---------- screenshots ---------- */
+.shot{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 18px 40px -18px rgba(11,59,44,.35)}
+.shot .bar{display:flex;align-items:center;gap:5px;padding:7px 12px;background:#EDE8DF;border-bottom:1px solid var(--line)}
+.shot .bar i{width:7px;height:7px;border-radius:50%;background:#CFC8BB}
+.shot .bar span{margin:0 auto;padding:2px 26px;border-radius:5px;background:#fff;font-size:8px;color:#777;letter-spacing:.06em}
+.shot img{display:block;width:100%;height:auto}
+.shot figcaption{padding:9px 12px;font-size:9.6px;line-height:1.5;color:var(--mut);background:var(--card);border-top:1px solid var(--line)}
+.shot figcaption b{color:var(--gd)}
+
+/* ---------- 3 ---------- */
+.pg .shot{margin-bottom:18px}
+.pil{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.pil>div{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);background:var(--g);border-radius:12px;overflow:hidden}
+.steps>div{padding:18px 18px 20px;border-left:1px solid rgba(255,255,255,.12)}
+.steps>div:first-child{border-left:0}
+.steps span{display:block;font:400 22px var(--serif);color:var(--gold);margin-bottom:10px}
+.steps h4{color:#fff}
+.steps p{color:rgba(255,255,255,.8);font-size:10.6px}
+
+/* ---------- 4 ---------- */
+.band{margin:-58px -60px 26px;padding:30px 60px 26px;background:linear-gradient(90deg,var(--gd) 48%,rgba(7,42,32,.75)),url(assets/teachos/proposal-photo.jpg) right 35%/62% auto no-repeat var(--gd)}
+.band h2{color:#fff;margin:0;font-size:31px}
+.band h2 em{color:#E7B93A}
+.cards{display:grid;gap:12px}
+.c4{grid-template-columns:repeat(3,1fr)}
+.c3{grid-template-columns:repeat(3,1fr);margin-bottom:16px}
+.cd{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 14px 13px;min-height:131px}
+.cd .ic{margin-bottom:12px}
+.cd p{font-size:10.4px;line-height:1.5}
+.c4 .cd{min-height:142px}
+.note{display:flex;align-items:center;gap:14px;margin-top:16px;padding:14px 18px;border-radius:11px;background:var(--lg)}
+.note p{font-size:10.8px;color:#2f3b36}
+.note p b{color:var(--gd)}
+
+/* ---------- 5 ---------- */
+.ld{display:grid;grid-template-columns:1.6fr 1fr;gap:22px;align-items:start;margin:4px 0 18px}
+.ld .shot{margin:0}
+.ld-tx p{font-size:12px;line-height:1.62;color:#2b3833;margin-bottom:14px}
+.ld-tx li{display:flex;gap:8px;font-size:10.8px;line-height:1.45;color:#2b3833;margin-bottom:9px}
+.ld-tx li svg{color:var(--goldt);margin-top:1px}
+.ld-tx b{color:var(--gd)}
+.c3 .cd{min-height:118px}
+.team{display:grid;grid-template-columns:.9fr 1fr 1fr 1fr;gap:16px;align-items:center;padding:16px 20px;border-radius:12px;background:var(--gold)}
+.team h3{font:500 17px/1.2 var(--serif);color:var(--gd)}
+.team b{display:flex;align-items:center;gap:5px;font:700 10.4px var(--sans);color:var(--gd);margin-bottom:3px}
+.team p{font-size:9.8px;color:#3a2f06;line-height:1.45}
+
+/* ---------- 6 ---------- */
+.chg{display:grid;grid-template-columns:1fr 1fr;column-gap:30px;margin:18px 0 44px}
+.chg>div{display:flex;gap:16px;padding:20px 0 24px;border-top:1px solid var(--line)}
+.chg span{font:400 24px/1 var(--serif);color:var(--goldt);width:30px;flex-shrink:0}
+.chg p{font-size:10.6px}
+.ev{display:grid;grid-template-columns:repeat(5,1fr);background:var(--g);border-radius:12px;overflow:hidden;margin:6px 0 12px}
+.ev>div{padding:24px 13px 28px;border-left:1px solid rgba(255,255,255,.12)}
+.ev>div:first-child{border-left:0}
+.ev b{display:block;font:800 26px/1 var(--sans);letter-spacing:-.03em;color:var(--gold);margin-bottom:12px;white-space:nowrap}
+.ev b i{font-style:normal;font-size:11px;letter-spacing:0}
+.ev p{font-size:9.8px;color:rgba(255,255,255,.85);line-height:1.5}
+.meth{font-size:9.4px;font-style:italic;color:var(--mut)}
+
+/* ---------- 7 ---------- */
+.pr{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:12px;align-items:start;margin-bottom:4px}
+.pr>div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px 16px 18px;min-height:400px}
+.pr small{display:flex;align-items:center;gap:8px;color:var(--mut);margin-bottom:8px}
+.pr .amt{font:800 31px/1 var(--sans);letter-spacing:-.03em;color:var(--gd)}
+.pr .per{display:block;font-style:normal;font-size:9.2px;color:var(--mut);margin:5px 0 12px;line-height:1.45}
+.pr p{font-size:10.6px;color:#2f3b36;padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid var(--line)}
+.pr li{display:flex;gap:7px;font-size:10.2px;line-height:1.4;color:#2f3b36;margin-bottom:7px}
+.pr li svg{width:11px;height:11px;margin-top:2px;color:var(--goldt)}
+.pr .dk{background:var(--g);border-color:var(--g);margin-top:-10px;min-height:420px}
+.pr .dk small{color:var(--gold)}
+.pr .dk .amt,.pr .dk li{color:#fff}
+.pr .dk .per,.pr .dk p{color:rgba(255,255,255,.78);border-color:rgba(255,255,255,.15)}
+.pr .dk li svg{color:var(--gold)}
+.ys{padding:3px 8px;border-radius:30px;background:var(--gold);color:var(--gd);letter-spacing:.14em;font-size:7.6px}
+.pg .note{margin:18px 0 32px}
+.st4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:6px;position:relative}
+.st4::before{content:'';position:absolute;top:16px;left:30px;right:24px;height:1px;background:#BDB4A3}
+.st4>div{position:relative}
+.st4 span{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--g);color:var(--gold);font:700 13px var(--sans);margin-bottom:12px;box-shadow:0 0 0 5px var(--cream)}
+.st4 p{font-size:10.4px;line-height:1.6}
+
+/* ---------- 8 ---------- */
+.faq{margin:14px 0 34px;border-top:1px solid var(--line)}
+.faq>div{display:grid;grid-template-columns:.62fr 1fr;gap:22px;padding:19px 0;border-bottom:1px solid var(--line)}
+.faq h4{font:500 14px/1.35 var(--serif);color:var(--gd)}
+.faq p{font-size:10.6px}
+.close{position:relative;border-radius:14px;overflow:hidden;padding:40px 36px 40px;background:linear-gradient(180deg,rgba(7,42,32,.86),rgba(11,59,44,.95)),url(assets/teachos/proposal-photo.jpg) center 30%/cover;margin-bottom:28px}
+.close h3{font:500 25px/1.26 var(--serif);color:#fff;margin:6px 0 16px}
+.close h3 em{color:#E7B93A}
+.close p{font-size:12px;color:rgba(255,255,255,.88)}
+.sig{display:grid;grid-template-columns:1fr 268px;gap:28px;align-items:end}
+.sig-n{font:500 22px var(--serif);color:var(--gd);margin-bottom:6px}
+.sig b{display:block;font:600 11.4px var(--sans);color:var(--ink);margin-bottom:12px}
+.sig p{font-size:9px;line-height:1.5}
+.ct{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.ct>div{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+.ct>div:last-child{margin-bottom:0}
+.ct svg{color:var(--goldt);margin-top:3px}
+.ct small{font:500 9px var(--sans);letter-spacing:0;color:var(--mut);margin-bottom:2px}
+.ct b{font:700 11.4px var(--sans);color:var(--gd)}
+
+/* ---------- print ---------- */
+@page{size:A4;margin:0}
+@media print{
+  html,body{background:none!important;width:210mm}
+  .tb{display:none!important}
+  .doc{margin:0!important;width:210mm;zoom:1!important;transform:none!important}
+  .pg{margin:0!important;box-shadow:none!important;width:210mm;height:297mm}
+}
+@media screen and (max-width:840px){.tb{position:static;padding:12px 14px}.tb-dl{width:100%;justify-content:center}}
+
+</style>
+</head>
+<body>
+<div class="tb" id="tb">
+  <a class="tb-back" href="teachos">&larr; TeachOS</a>
+  <form class="tb-f" id="tbForm" autocomplete="off">
+    <label>School / organisation<input name="org" id="fOrg" required maxlength="90" placeholder="e.g. Lead Forte Gate Schools"></label>
+    <label>Prepared for<input name="to" id="fTo" maxlength="60" value="The Principal"></label>
+    <label>Date<input name="date" id="fDate" type="date"></label>
+    <button type="submit" class="tb-up">Update</button>
+  </form>
+  <button type="button" class="tb-dl" id="dl"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg> Download PDF</button>
+  <p class="tb-hint" id="hint">In the print window, set <b>Destination</b> to <b>Save as PDF</b>, then Save. The file is named after the school.</p>
+</div>
+<main class="doc" id="doc">
+<section class="pg cover">
+  <div class="cv-photo"></div>
+  <div class="cv-top"><span class="lg lg-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg></span><b>TeachOS</b><span class="cv-pill">SCHOOL PARTNERSHIP PROPOSAL</span></div>
+  <div class="cv-main">
+    <div class="eb eb-gold"><span>A PROPOSAL FOR <span data-f="orgU"></span></span></div>
+    <h1>Five hours back for every teacher. <em>Every week.</em></h1>
+    <p>A better-prepared teaching staff, for less than one textbook per teacher.</p>
+  </div>
+  <div class="cv-meta">
+    <div><small>PREPARED FOR</small><b><span data-f="to"></span></b><span><span data-f="org"></span></span></div>
+    <div><small>PREPARED BY</small><b>Damilola Yusuf</b><span>Founder and Creative Director, TeachOS</span></div>
+    <div><small>DATE</small><b data-f="date"></b></div>
+  </div>
+  <div class="cv-bar"><span>The operating system for schools and Nigerian teachers</span><b>teachosnigeria.com</b></div>
+</section><section class="pg">
+  <div class="eb "><span>THE PROPOSAL AT A GLANCE</span></div>
+  <h2>Your teachers are already paid for this time. <em>Let them teach with it.</em></h2>
+  <div class="memo">
+    <div><small>TO</small><p><span data-f="to"></span>, <span data-f="org"></span></p></div>
+    <div><small>FROM</small><p>Damilola Yusuf,<br>Founder and Creative Director, TeachOS</p></div>
+    <div class="memo-s"><small>SUBJECT</small><p><b>Cut lesson preparation time by 80% across your teaching staff</b></p></div>
+  </div>
+  <p class="lede">Good teaching starts the night before, in the preparation. This proposal sets out how <span data-f="org"></span> can hand that preparation time back to its teachers, and everything the school receives from the first day.</p>
+  <div class="eb "><span>THE BUSINESS CASE IN THREE LINES</span></div>
+  <div class="case">
+    <div><small>THE COST TODAY</small><div class="big">12&ndash;15 <i>hrs</i></div><p>Lost by each teacher, every week, to lesson notes, schemes and records. Time you are already paying for.</p></div>
+    <div class="dk"><small>WHAT TEACHOS RETURNS</small><div class="big">&asymp; 5 <i>hrs</i></div><p>Back to every teacher, every week, at a cost of &#8358;25,000 per month for a staff of fifteen.</p></div>
+    <div><small>WHAT IT COSTS</small><div class="big"><i class="u">under</i> &#8358;1,700</div><p>Per teacher per month to recover several working hours a week and standardise documentation across the school.</p></div>
+  </div>
+  <div class="offer">
+    <div class="of-img"></div>
+    <div class="of-tx"><div class="eb eb-gold"><span>THE OFFER</span></div>
+      <h3>A free trial for your <em>full teaching staff.</em></h3>
+      <p>We onboard your teachers ourselves. If your staff are not using it by the end of the trial, you pay nothing and we go away.</p>
+      <div class="of-ck"><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="8 12.5 11 15 16 9.5"/></svg> No card</span><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="8 12.5 11 15 16 9.5"/></svg> No commitment</span><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="8 12.5 11 15 16 9.5"/></svg> In-person onboarding</span></div>
+    </div>
+  </div>
+  <footer class="pf"><span class="pf-b"><span class="lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg></span>TeachOS</span><span class="pf-c">PROPOSAL FOR <span data-f="orgU"></span></span><span class="pf-r"><b>teachosnigeria.com</b> · 02</span></footer>
+</section><section class="pg">
+  <div class="eb "><span>WHAT TEACHOS IS</span></div>
+  <h2>One platform. <em>Every teaching task.</em></h2>
+  <p class="lede">TeachOS is a Nigerian-built platform that generates complete, curriculum-aligned lesson notes, schemes of work and assessments for teachers in seconds. It is live in production and in use by teachers today.</p>
+  <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>teachosnigeria.com</span></div><img src="assets/teachos/teacher-dashboard.webp" alt="TeachOS teacher home screen"><figcaption><b>The teacher home screen.</b> Lesson notes, curriculum, assessments, attendance, results, discipline, announcements, messages and meetings, all from one menu.</figcaption></figure>
+  <div class="pil"><div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg></span><span><h4>Curriculum-native</h4><p>Built directly on the NERDC scheme of work. The platform already knows the prescribed topic. Nothing is typed from scratch and nothing is invented.</p></span></div><div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></span><span><h4>Inspection-ready output</h4><p>Every note exports as a print-ready PDF in the standard format supervisors and inspectors already grade against.</p></span></div><div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span><span><h4>Built for Nigerian infrastructure</h4><p>Works offline, storing work locally and syncing when a connection returns. Runs on the Android phone a teacher already owns.</p></span></div><div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span><span><h4>Visible to school leadership</h4><p>A head teacher dashboard shows curriculum coverage, note submission and teacher activity, replacing the paper register.</p></span></div></div>
+  <div class="steps">
+    <div><span>01</span><h4>The teacher selects</h4><p>Subject, class, term and week. TeachOS already knows the topic from the national curriculum.</p></div>
+    <div><span>02</span><h4>TeachOS writes</h4><p>Objectives, introduction, step-by-step development, teaching aids, assessment and homework.</p></div>
+    <div><span>03</span><h4>The teacher approves</h4><p>Read it through, edit anything, then save or export as a print-ready PDF. Under 10 seconds to a first draft.</p></div>
+  </div>
+  <footer class="pf"><span class="pf-b"><span class="lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg></span>TeachOS</span><span class="pf-c">PROPOSAL FOR <span data-f="orgU"></span></span><span class="pf-r"><b>teachosnigeria.com</b> · 03</span></footer>
+</section><section class="pg">
+  <div class="band"><div class="eb eb-gold"><span>EVERYTHING INCLUDED · FOR YOUR TEACHERS</span></div><h2>What every teacher at<br><span data-f="org"></span> <em>gets.</em></h2></div>
+  <p class="lede">Twelve tools that replace the notebooks, Word documents and WhatsApp groups your staff juggle today. Each teacher signs in on a phone or computer and has all of them from the first day.</p>
+  <div class="cards c4"><div class="cd"><span class="ic g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><h4>AI Lesson Note Generator</h4><p>Pick subject, class, term and week. A complete NERDC-aligned lesson note is ready in under 10 seconds, fully editable.</p></div><div class="cd"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><h4>Scheme of Work Engine</h4><p>A full 13-week scheme of work for any subject and class level, aligned to the national curriculum.</p></div><div class="cd"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></span><h4>Assessment &amp; Exam Generator</h4><p>Objective tests, theory questions and marking guides in seconds, ready to print.</p></div><div class="cd"><span class="ic g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><h4>Curriculum Library</h4><p>Every subject and level in one place, with a live view of how much of the term each teacher has covered.</p></div><div class="cd"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><h4>Attendance Registers</h4><p>Class registers taken on the phone: present, absent and late, visible to the school office the same day.</p></div><div class="cd"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><polyline points="8.2 13.9 7 22 12 19 17 22 15.8 13.9"/></svg></span><h4>Results &amp; CA Records</h4><p>Continuous assessment scores and grading recorded once, in one place, instead of across notebooks.</p></div><div class="cd"><span class="ic g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><h4>Discipline Reports</h4><p>Teachers log incidents as they happen, so cases reach leadership with a proper record behind them.</p></div><div class="cd"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span><h4>Announcements</h4><p>School notices reach every teacher on the platform. No more lost circulars or buried WhatsApp messages.</p></div><div class="cd"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><h4>Staff Messages</h4><p>A staff chat that belongs to the school, separate from personal phone groups.</p></div><div class="cd"><span class="ic g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></span><h4>Meetings &amp; Calls</h4><p>Staff meetings scheduled and held inside the same platform teachers already use every day.</p></div><div class="cd"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/><path d="M10.71 5.05A16 16 0 0 1 22.58 9"/><path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></span><h4>Works Offline</h4><p>No internet at school? Work is stored on the device and syncs when the connection returns.</p></div><div class="cd"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg></span><h4>Print-Ready PDF Export</h4><p>Every document exports in the standard lesson note format that supervisors and inspectors expect.</p></div></div>
+  <div class="note"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span><p><b>Installs like an app.</b> Teachers add TeachOS to the home screen of an Android phone or iPhone. It opens full-screen and is built to work on slow networks.</p></div>
+  <footer class="pf"><span class="pf-b"><span class="lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg></span>TeachOS</span><span class="pf-c">PROPOSAL FOR <span data-f="orgU"></span></span><span class="pf-r"><b>teachosnigeria.com</b> · 04</span></footer>
+</section><section class="pg">
+  <div class="eb "><span>EVERYTHING INCLUDED · FOR SCHOOL LEADERSHIP</span></div>
+  <h2>What your school leadership <em>gets.</em></h2>
+  <div class="ld">
+    <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>teachosnigeria.com</span></div><img src="assets/teachos/school-admin-dashboard.webp" alt="TeachOS School Admin overview"><figcaption><b>The School Admin overview</b>, shown on a demonstration school.</figcaption></figure>
+    <div class="ld-tx"><p>The School Admin dashboard gives the principal and school leadership one honest picture of the school day: who is in, what has been prepared, and what still needs attention.</p>
+      <ul><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="8 12.5 11 15 16 9.5"/></svg><span>Your school receives its <b>own private workspace</b>.</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="8 12.5 11 15 16 9.5"/></svg><span>Teachers join with a single <b>school invite code</b>.</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="8 12.5 11 15 16 9.5"/></svg><span>Problems surface <b>the same day</b>, not at the end of term.</span></li></ul></div>
+  </div>
+  <div class="cards c3"><div class="cd"><span class="ic g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><h4>School Overview</h4><p>Teachers, students, classes and who is present today, on a single screen.</p></div><div class="cd"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span><h4>Teacher Activity</h4><p>See which teachers used TeachOS today and what they prepared this week.</p></div><div class="cd"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 13"/></svg></span><h4>Lesson Note Review</h4><p>Submitted lesson notes arrive in a review queue for the head teacher to check.</p></div><div class="cd"><span class="ic g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><h4>Registers Not Taken</h4><p>Any class without a register today is flagged, with the form teacher named.</p></div><div class="cd"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><h4>Classes &amp; Students</h4><p>Class lists and student records kept centrally and shared with each form teacher.</p></div><div class="cd"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><h4>Attendance &amp; Results</h4><p>School-wide attendance and results, without waiting for end-of-term paperwork.</p></div><div class="cd"><span class="ic g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><h4>Discipline Oversight</h4><p>Open discipline cases tracked from first report through to resolution.</p></div><div class="cd"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></span><h4>Compliance Tracking</h4><p>Note submission and curriculum coverage across the whole staff, in real time.</p></div><div class="cd"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span><h4>Announcements &amp; Meetings</h4><p>Post a notice or schedule a staff meeting in two taps from the overview.</p></div></div>
+  <div class="team"><h3>And from our team</h3>
+    <div><b><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Onboarding session</b><p>We train your staff in person rather than sending a link.</p></div>
+    <div><b><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg> Dedicated support</b><p>Direct, priority support for your school.</p></div>
+    <div><b><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg> Head teacher reports</b><p>Compliance reporting ready whenever you need it.</p></div></div>
+  <footer class="pf"><span class="pf-b"><span class="lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg></span>TeachOS</span><span class="pf-c">PROPOSAL FOR <span data-f="orgU"></span></span><span class="pf-r"><b>teachosnigeria.com</b> · 05</span></footer>
+</section><section class="pg">
+  <div class="eb "><span>WHAT IT CHANGES IN YOUR SCHOOL</span></div>
+  <h2>Six things that look different <em>by the end of term.</em></h2>
+  <div class="chg"><div><span>01</span><div><h4>Preparation quality rises.</h4><p>Teachers stop spending their preparation time transcribing and start spending it preparing. Notes become complete and consistent instead of rushed.</p></div></div><div><span>02</span><div><h4>Documentation standardises overnight.</h4><p>Every note across every class in the same professional format, generated from the same curriculum source. No more chasing formats.</p></div></div><div><span>03</span><div><h4>You gain oversight without policing.</h4><p>The admin dashboard shows note submission and curriculum coverage across your whole staff, in real time. You stop discovering problems at the end of term.</p></div></div><div><span>04</span><div><h4>Inspection stops being an event.</h4><p>Records are complete and exportable at any moment. Ministry visits become routine rather than disruptive.</p></div></div><div><span>05</span><div><h4>Retention improves.</h4><p>Workload is the most cited reason good teachers leave private schools. This is a concrete, visible reduction you can point to.</p></div></div><div><span>06</span><div><h4>It becomes something you can market.</h4><p>Parents increasingly assess schools on how seriously they take teaching quality and technology. AI-assisted, curriculum-verified lesson preparation is a real differentiator, not a slogan.</p></div></div></div>
+  <div class="eb "><span>THE EVIDENCE SO FAR</span></div>
+  <p class="lede">TeachOS was designed from a structured requirements survey of Nigerian teachers, head teachers and education administrators across both public and private schools, and has since been built, deployed and put in front of real users.</p>
+  <div class="ev">
+    <div><b>500+</b><p>Teachers onboarded onto the live platform to date</p></div>
+    <div><b>5 <i>hrs</i></b><p>Saved per teacher per week on lesson preparation, based on user reporting</p></div>
+    <div><b>86.7%</b><p>Of surveyed respondents ranked automated lesson notes as the feature they most wanted</p></div>
+    <div><b>&lt;10 <i>sec</i></b><p>To generate a complete, editable, curriculum-aligned lesson note</p></div>
+    <div><b>46.7%</b><p>Of surveyed teachers had no reliable internet at school, which is why offline is core to the design</p></div>
+  </div>
+  <p class="meth">Note on methodology: these figures come from an early validation cohort and live platform usage. We are running a larger, structured study and will share the full dataset with any partner who requires it.</p>
+  <footer class="pf"><span class="pf-b"><span class="lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg></span>TeachOS</span><span class="pf-c">PROPOSAL FOR <span data-f="orgU"></span></span><span class="pf-r"><b>teachosnigeria.com</b> · 06</span></footer>
+</section><section class="pg">
+  <div class="eb "><span>PRICING</span></div>
+  <h2>Simple pricing. <em>No surprises.</em></h2>
+  <p class="lede sm">One monthly price covers your staff. It is held for the duration of any agreed term.</p>
+  <div class="pr">
+    <div><small>FREE TIER</small><div class="amt">&#8358;0</div><em class="per">no card needed</em><p>So a teacher can test the platform before anything is agreed.</p><ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Limited lesson notes each month</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Full PDF export</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Curriculum library access</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Offline storage</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Basic scheme of work</span></li></ul></div>
+    <div class="dk"><small>SCHOOL PLAN <span class="ys">YOUR SCHOOL</span></small><div class="amt">&#8358;25,000</div><em class="per">per school, per month · covers up to 15 teachers</em><p>Everything in this proposal, for your whole teaching staff.</p><ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Unlimited lesson notes and schemes of work</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Assessment and exam generation</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Attendance, results and CA records</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Discipline, announcements, messages, meetings</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Head teacher admin dashboard</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Compliance reporting</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Staff onboarding and priority support</span></li></ul></div>
+    <div><small>TEACHER PRO</small><div class="amt">&#8358;2,500</div><em class="per">per teacher, per month</em><p>For individual teachers, or schools below fifteen staff.</p><ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Unlimited lesson notes</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Assessment and exam generator</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Records and grading</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>All PDF exports</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Priority support</span></li></ul></div>
+  </div>
+  <div class="note"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="22" x2="9" y2="18"/><line x1="15" y1="22" x2="15" y2="18"/><line x1="8" y1="6" x2="8" y2="6.01"/><line x1="12" y1="6" x2="12" y2="6.01"/><line x1="16" y1="6" x2="16" y2="6.01"/><line x1="8" y1="10" x2="8" y2="10.01"/><line x1="12" y1="10" x2="12" y2="10.01"/><line x1="16" y1="10" x2="16" y2="10.01"/><line x1="8" y1="14" x2="8" y2="14.01"/><line x1="12" y1="14" x2="12" y2="14.01"/><line x1="16" y1="14" x2="16" y2="14.01"/></svg></span><p><b>Larger schools.</b> Schools with more than fifteen teaching staff are quoted per additional teacher. Multi-campus groups are quoted as a group. Payment is by bank transfer or card.</p></div>
+  <div class="eb "><span>HOW WE START</span></div>
+  <h2 class="h2s">Four steps, <em>no risk to the school.</em></h2>
+  <div class="st4">
+    <div><span>1</span><h4>A demonstration</h4><p>Twenty minutes. We generate a live lesson note for one of your actual subjects and classes so you can judge the output yourself.</p></div>
+    <div><span>2</span><h4>A free trial for your staff</h4><p>We onboard your teachers and let them use the platform for real preparation. No card, no commitment.</p></div>
+    <div><span>3</span><h4>A decision</h4><p>At the end of the trial you either subscribe or you do not. We will tell you honestly if we do not think your staff took to it.</p></div>
+    <div><span>4</span><h4>Ongoing support</h4><p>Subscribed schools get direct support and are consulted on what we build next.</p></div>
+  </div>
+  <footer class="pf"><span class="pf-b"><span class="lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg></span>TeachOS</span><span class="pf-c">PROPOSAL FOR <span data-f="orgU"></span></span><span class="pf-r"><b>teachosnigeria.com</b> · 07</span></footer>
+</section><section class="pg">
+  <div class="eb "><span>COMMON QUESTIONS</span></div>
+  <h2>What principals <em>ask us first.</em></h2>
+  <div class="faq"><div><h4>Will teachers actually use it?</h4><p>Uptake is high because it removes work rather than adding it. That said, onboarding matters, which is why we train your staff in person rather than sending a link.</p></div><div><h4>Is the output accurate?</h4><p>Notes are generated against the NERDC scheme of work rather than freely invented, and every note is fully editable. Teachers review and approve before use.</p></div><div><h4>Does it work on their phones?</h4><p>Yes. It is built for Android smartphones and works offline, syncing when a connection returns.</p></div><div><h4>What about our house format?</h4><p>Notes export in the standard format inspectors expect, and are editable throughout. Tell us your school&rsquo;s requirements and we will work with them.</p></div><div><h4>Can we cancel?</h4><p>Yes. Subscriptions are monthly. There is no lock-in and no exit fee.</p></div></div>
+  <div class="close"><div class="eb eb-gold"><span>IN CLOSING</span></div>
+    <h3>Your teachers are the product your school sells. Anything that makes them better prepared, more consistent and less exhausted <em>pays for itself.</em></h3>
+    <p>We would be glad to run a demonstration for <span data-f="org"></span> at your convenience.</p></div>
+  <div class="sig">
+    <div><div class="sig-n">Damilola Yusuf</div><b>Founder and Creative Director, TeachOS</b><p>TeachOS is a product of Ridgeview Innovations Hub Ltd, a company incorporated in Nigeria under the Companies and Allied Matters Act 2020 (RC No. 9393238).</p></div>
+    <div class="ct">
+      <div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span><small>Website</small><b>teachosnigeria.com</b></span></div>
+      <div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span><small>Phone / WhatsApp</small><b>+234 810 899 1625</b></span></div>
+      <div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span><small>Email</small><b>contact@ridgeviewinnovations.com</b></span></div>
+    </div>
+  </div>
+  <footer class="pf"><span class="pf-b"><span class="lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg></span>TeachOS</span><span class="pf-c">PROPOSAL FOR <span data-f="orgU"></span></span><span class="pf-r"><b>teachosnigeria.com</b> · 08</span></footer>
+</section>
+</main>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var f = document.getElementById('tbForm');
+  var fOrg = document.getElementById('fOrg'), fTo = document.getElementById('fTo'), fDate = document.getElementById('fDate');
+  var dl = document.getElementById('dl'), doc = document.getElementById('doc');
+
+  function todayISO() { var d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0, 10); }
+  function niceDate(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+    var d = m ? new Date(+m[1], +m[2] - 1, +m[3]) : new Date();
+    return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  }
+  function clean(v, max) { return String(v || '').replace(/\s+/g, ' ').trim().slice(0, max); }
+
+  function apply(org, to, date) {
+    org = clean(org, 90) || 'Your School';
+    to = clean(to, 60) || 'The Principal';
+    var vals = { org: org, orgU: org.toUpperCase(), to: to, date: niceDate(date) };
+    document.querySelectorAll('[data-f]').forEach(function (el) { el.textContent = vals[el.getAttribute('data-f')]; });
+    // Chrome/Edge use the page title as the suggested PDF file name
+    document.title = 'TeachOS Proposal - ' + org.replace(/[\\/:*?"<>|]+/g, '');
+    fOrg.value = org === 'Your School' ? '' : org; fTo.value = to; fDate.value = date || todayISO();
+  }
+
+  function fit() { // scale pages down on small screens (screen only)
+    var w = Math.min(1, (window.innerWidth - 24) / 794);
+    doc.style.zoom = w < 1 ? w : '';
+  }
+
+  function ready() {
+    var imgs = Array.prototype.map.call(document.images, function (i) { return i.complete ? 0 : new Promise(function (r) { i.onload = i.onerror = r; }); });
+    var bg = ['assets/teachos/proposal-photo.jpg'].map(function (src) { return new Promise(function (r) { var i = new Image(); i.onload = i.onerror = r; i.src = src; }); });
+    return Promise.all([document.fonts ? document.fonts.ready : 0].concat(imgs, bg));
+  }
+
+  function download() {
+    dl.disabled = true; var t = dl.innerHTML; dl.lastChild.textContent = ' Preparing…';
+    ready().then(function () { dl.disabled = false; dl.innerHTML = t; window.print(); });
+  }
+
+  apply(q.get('org'), q.get('to'), q.get('date'));
+  fit(); window.addEventListener('resize', fit);
+
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var p = new URLSearchParams({ org: clean(fOrg.value, 90), to: clean(fTo.value, 60), date: fDate.value || todayISO() });
+    history.replaceState(null, '', location.pathname + '?' + p.toString());
+    apply(fOrg.value, fTo.value, fDate.value);
+  });
+  dl.addEventListener('click', function () {
+    if (!clean(fOrg.value, 90)) { fOrg.focus(); fOrg.reportValidity && fOrg.reportValidity(); return; }
+    apply(fOrg.value, fTo.value, fDate.value); download();
+  });
+  window.addEventListener('beforeprint', function () { doc.style.zoom = ''; });
+  window.addEventListener('afterprint', fit);
+
+  if (q.get('print') === '1' && q.get('org')) setTimeout(download, 400);
+})();
+
+</script>
+</body>
+</html>
