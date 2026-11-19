@@ -571,11 +571,13 @@
     </div>
 
     <div class="rvj-body">
-      <form id="rvjForm" action="https://formspree.io/f/mqpaqoag" method="POST">
+      <form id="rvjForm" action="https://formspree.io/f/mqpaqoag" method="POST" novalidate>
         <input type="hidden" name="_subject" value="New internship application">
         <input type="hidden" name="form_name" value="Careers: Internship Application">
         <input type="hidden" name="applied_via" value="Careers page">
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+
+        <p class="rvj-notice" role="status" hidden></p>
 
         <div class="fg">
           <label for="rvjRole">Role</label>
@@ -600,7 +602,7 @@
           <div class="fg"><label for="rvjEmail">Email</label><input id="rvjEmail" type="email" name="email" autocomplete="email" required></div>
         </div>
         <div class="frow">
-          <div class="fg"><label for="rvjPhone">Phone (WhatsApp)</label><input id="rvjPhone" type="tel" name="phone" autocomplete="tel" required></div>
+          <div class="fg"><label for="rvjPhone">Phone (WhatsApp)</label><input id="rvjPhone" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+234 800 000 0000" required></div>
           <div class="fg"><label for="rvjLoc">Where are you based?</label><input id="rvjLoc" type="text" name="location" placeholder="e.g. Ikeja, Lagos" required></div>
         </div>
         <div class="fg">
@@ -612,7 +614,7 @@
           <input id="rvjPort" type="url" name="portfolio" placeholder="https://">
         </div>
         <div class="fg">
-          <label for="rvjMsg">Why do you want this role?</label>
+          <label for="rvjMsg">Why do you want this role? <span class="rvj-opt">(at least 30 characters)</span></label>
           <textarea id="rvjMsg" name="message" required></textarea>
         </div>
 
@@ -623,8 +625,8 @@
 
     <div class="rvj-done" hidden>
       <div class="rvj-done-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      <h3>Application sent</h3>
-      <p>Thanks for applying. We review applications weekly and will reach out by email or WhatsApp if you're shortlisted.</p>
+      <h3 tabindex="-1">Application sent</h3>
+      <p class="rvj-done-msg">Thanks for applying. We review applications weekly and will reach out by email or WhatsApp if you're shortlisted.</p>
       <button type="button" class="fsub rvj-done-close">Close</button>
     </div>
 
@@ -697,11 +699,115 @@
     panel.style.setProperty('--rvj-accent', r.accent);
   }
 
+  /* ---------- Validation ----------
+     The browser's built-in checks accept a single space as a "filled in" field
+     and accept any text as a phone number, so we check each field ourselves
+     and show the problem right under it. */
+  var RULES = {
+    full_name: function (v) {
+      if (!v) return 'Please enter your full name.';
+      if (v.length < 2 || !/[a-z]/i.test(v)) return 'Please enter your real name.';
+    },
+    email: function (v) {
+      if (!v) return 'Please enter your email address.';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) return 'That email address doesn\'t look right. Example: you@gmail.com';
+    },
+    phone: function (v) {
+      if (!v) return 'Please enter a phone number we can reach on WhatsApp.';
+      var digits = v.replace(/\D/g, '');
+      if (!/^[0-9+\-\s()]+$/.test(v) || digits.length < 10 || digits.length > 15) {
+        return 'Please enter a valid phone number, e.g. +234 800 000 0000 or 0800 000 0000.';
+      }
+    },
+    location: function (v) {
+      if (!v || v.length < 2) return 'Please tell us where you are based.';
+    },
+    cv_link: function (v) {
+      if (!v) return 'Please add a link to your CV.';
+      if (!isWebLink(v)) return 'Please paste the full link, starting with https://';
+    },
+    portfolio: function (v) {
+      if (v && !isWebLink(v)) return 'Please paste the full link, starting with https://, or leave this empty.';
+    },
+    message: function (v) {
+      if (!v) return 'Please tell us why you want this role.';
+      if (v.length < 30) return 'Please write a little more (at least 30 characters). You have ' + v.length + ' so far.';
+    }
+  };
+
+  function isWebLink(v) {
+    try { var u = new URL(v); return (u.protocol === 'https:' || u.protocol === 'http:') && u.hostname.indexOf('.') > 0; }
+    catch (err) { return false; }
+  }
+
+  function errorFor(field) {
+    var id = field.id + 'Err';
+    var el = document.getElementById(id);
+    if (!el) {
+      el = document.createElement('p');
+      el.id = id;
+      el.className = 'rvj-err';
+      el.hidden = true;
+      field.insertAdjacentElement('afterend', el);
+    }
+    return el;
+  }
+
+  function checkField(name) {
+    var field = form.elements[name];
+    var problem = RULES[name](field.value.trim());
+    var err = errorFor(field);
+    if (problem) {
+      err.textContent = problem;
+      err.hidden = false;
+      field.setAttribute('aria-invalid', 'true');
+      field.setAttribute('aria-describedby', err.id);
+    } else {
+      err.textContent = '';
+      err.hidden = true;
+      field.removeAttribute('aria-invalid');
+      field.removeAttribute('aria-describedby');
+    }
+    return !problem;
+  }
+
+  function validateForm() {
+    var firstBad = null, count = 0;
+    Object.keys(RULES).forEach(function (name) {
+      if (!checkField(name)) { count++; if (!firstBad) firstBad = form.elements[name]; }
+    });
+    if (firstBad) firstBad.focus();
+    return count;
+  }
+
+  function clearErrors() {
+    Object.keys(RULES).forEach(function (name) {
+      var field = form.elements[name];
+      var err = document.getElementById(field.id + 'Err');
+      if (err) { err.textContent = ''; err.hidden = true; }
+      field.removeAttribute('aria-invalid');
+      field.removeAttribute('aria-describedby');
+    });
+  }
+
+  // Once a field has shown an error, re-check it as the person types so the
+  // message disappears as soon as it's fixed.
+  Object.keys(RULES).forEach(function (name) {
+    form.elements[name].addEventListener('input', function () {
+      if (form.elements[name].getAttribute('aria-invalid') === 'true') checkField(name);
+    });
+  });
+
+  var notice = form.querySelector('.rvj-notice');
+
   function openModal(slug) {
     lastFocus = document.activeElement;
     setRole(slug);
+    notice.hidden = true;
+    notice.textContent = '';
     body.hidden = false;
     done.hidden = true;
+    clearErrors();
     status.textContent = '';
     status.className = 'rvj-status';
     ov.hidden = false;
@@ -741,10 +847,28 @@
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
     status.textContent = '';
     status.className = 'rvj-status';
+
+    // Strip stray spaces so "  jane@x.com " is sent as "jane@x.com"
+    Object.keys(RULES).forEach(function (name) { form.elements[name].value = form.elements[name].value.trim(); });
+
+    var problems = validateForm();
+    if (problems) {
+      status.textContent = problems === 1
+        ? 'Please fix the highlighted field.'
+        : 'Please fix the ' + problems + ' highlighted fields.';
+      status.classList.add('err');
+      return;
+    }
+
+    // Remember what was sent so the confirmation can repeat it back
+    var sentRole = form.elements.role.value;
+    var sentEmail = form.elements.email.value;
+    var firstName = form.elements.full_name.value.split(/\s+/)[0];
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
 
     fetch(form.action, {
       method: 'POST',
@@ -753,9 +877,14 @@
     }).then(function (res) {
       if (res.ok) {
         form.reset();
+        clearErrors();
+        done.querySelector('.rvj-done-msg').textContent =
+          'Thanks, ' + firstName + '! Your application for the ' + sentRole + ' role has been received. ' +
+          'We review applications weekly and will contact you at ' + sentEmail +
+          ' or on WhatsApp if you\'re shortlisted.';
         body.hidden = true;
         done.hidden = false;
-        done.querySelector('.rvj-done-close').focus();
+        done.querySelector('h3').focus();
         return;
       }
       return res.json().catch(function () { return {}; }).then(function (data) {
@@ -779,6 +908,14 @@
     if (card) card.scrollIntoView({ block: 'center' });
     openModal(slug);
     form.elements.applied_via.value = 'Direct link / flyer QR (?role=' + slug + ')';
+  } else if (slug) {
+    // Old flyer or mistyped link: still let them apply instead of showing nothing
+    openModal('general-application');
+    form.elements.applied_via.value = 'Direct link with unknown role (?role=' + slug + ')';
+    // Shown at the top of the form so it's the first thing they read
+    notice.textContent = 'We couldn\'t find the role "' + slug + '". It may have closed. ' +
+      'You can send a general application below, or choose a role from the list.';
+    notice.hidden = false;
   }
 })();
 </script>

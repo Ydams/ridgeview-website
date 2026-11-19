@@ -78,11 +78,20 @@
           <label for="ap-role">Role you are applying for</label>
           <select id="ap-role" name="Role" required>
             <option value="">Select a role…</option>
-            <option value="School Administrator">School Administrator</option>
-            <option value="Digital Marketer/Social Media Manager">Digital Marketer/Social Media Manager</option>
-            <option value="Sales And Marketing Manager">Sales And Marketing Manager</option>
-            <option value="Community &amp; Events Coordinator">Community &amp; Events Coordinator</option>
-            <option value="General Application">General Application</option>
+            <!-- Same roles and slugs as the Careers page, so ?role=data-analyst-intern works on both -->
+            <option value="Software Engineering Intern (Full Stack)" data-slug="software-engineering-intern">Software Engineering Intern (Full Stack)</option>
+            <option value="UI/UX Design Intern" data-slug="uiux-design-intern">UI/UX Design Intern</option>
+            <option value="Digital Marketing Intern" data-slug="digital-marketing-intern">Digital Marketing Intern</option>
+            <option value="Business Development Officer Intern" data-slug="business-development-intern">Business Development Officer Intern</option>
+            <option value="Data Analyst Intern" data-slug="data-analyst-intern">Data Analyst Intern</option>
+            <option value="Cyber Security Intern" data-slug="cybersecurity-intern">Cyber Security Intern</option>
+            <option value="Product Manager Intern" data-slug="product-manager-intern">Product Manager Intern</option>
+            <option value="Project Manager Intern" data-slug="project-manager-intern">Project Manager Intern</option>
+            <option value="Content Creator Intern" data-slug="content-creator-intern">Content Creator Intern</option>
+            <option value="Executive Assistant Intern" data-slug="executive-assistant-intern">Executive Assistant Intern</option>
+            <option value="Graphics Designer Intern" data-slug="graphics-designer-intern">Graphics Designer Intern</option>
+            <option value="Social Media Manager Intern" data-slug="social-media-manager-intern">Social Media Manager Intern</option>
+            <option value="General Application" data-slug="general-application">General Application</option>
           </select>
         </div>
 
@@ -195,19 +204,26 @@
   var role = new URLSearchParams(window.location.search).get('role');
   if (role) {
     role = role.trim();
-    var found = false;
+    // Accept the exact title ("Data Analyst Intern") or the link slug
+    // ("data-analyst-intern", "data-analyst", "data analyst intern")
+    var slug = role.toLowerCase().replace(/[\s_]+/g, '-').replace(/\/+$/, '');
+    var match = null;
     Array.prototype.forEach.call(select.options, function (opt) {
-      if (opt.value.toLowerCase() === role.toLowerCase()) { opt.selected = true; found = true; }
+      if (!opt.value || match) return;
+      var s = opt.getAttribute('data-slug');
+      if (opt.value.toLowerCase() === role.toLowerCase() || s === slug || s === slug + '-intern') match = opt;
     });
-    if (!found) {
-      var opt = document.createElement('option');
-      opt.value = opt.textContent = role;
-      opt.selected = true;
-      select.appendChild(opt);
+    if (match) {
+      match.selected = true;
+      title.textContent = 'Applying for: ' + match.value;
+      head.textContent  = match.value;
+      document.title    = match.value + ' — Apply | Ridgeview Innovations Hub Ltd';
+    } else {
+      // Old or mistyped link: fall back to a general application instead of
+      // inventing a role from whatever text was in the link
+      select.value = 'General Application';
+      title.textContent = 'We couldn\'t find that role. It may have closed, so this will be sent as a general application.';
     }
-    title.textContent = 'Applying for: ' + select.value;
-    head.textContent  = select.value;
-    document.title    = select.value + ' — Apply | Ridgeview Innovations Hub Ltd';
   }
 
   select.addEventListener('change', function () {

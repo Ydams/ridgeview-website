@@ -516,6 +516,10 @@ body.rva-locked{overflow:hidden}
 .rvj-body .fsub:disabled{opacity:.6;cursor:wait;transform:none}
 .rvj-status{margin-top:14px;font-family:var(--font-body);font-size:14px;line-height:1.5;text-align:center;min-height:1em}
 .rvj-status.err{color:#c62828}
+.rvj-err{margin-top:6px;font-family:var(--font-body);font-size:13px;line-height:1.4;color:#c62828}
+.rvj-body .fg [aria-invalid="true"]{border-color:#c62828}
+.rvj-done h3:focus{outline:none}
+.rvj-notice{margin:0 0 18px;padding:12px 14px;border-radius:12px;background:var(--brand-light);color:var(--ink-dark);font-family:var(--font-body);font-size:14px;line-height:1.5}
 .rvj-done{padding:40px 30px;text-align:center}
 .rvj-done-ico{width:64px;height:64px;border-radius:50%;background:var(--brand-light);color:var(--green);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
 .rvj-done-ico svg{width:30px;height:30px}
